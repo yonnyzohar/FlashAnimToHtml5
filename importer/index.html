@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>PARSER</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="scripts/engine/FitToScreenUtil.js"></script>
+    <script src="scripts/tweenMax/TweenMax.min.js"></script>
+    <script src="scripts/engine/PIXI.js"></script>
+    <script src="scripts/engine/TextField.js"></script>
+    <script src="scripts/engine/TileShower.js"></script>
+    <script src="scripts/builder/TemplateLoader.js"></script>
+    <script src="scripts/builder/GameTimer.js"></script>
+    <script src="scripts/builder/TimelineSprite.js"></script>
+    <script src="scripts/builder/GameTextField.js"></script>
+    <script src="scripts/builder/GameButton.js"></script>
+    <script src="scripts/engine/EventDispatcher.js"></script>
+    <script src="scripts/engine/TextureAtlas.js"></script>
+    <script src="scripts/engine/Keyboard.js"></script>
+
+
+    <script src="scripts/game/Main.js"></script>
+
+
+
+
+
+
+</head>
+
+<style>
+    body,
+    html {
+        overflow-x: hidden;
+        overflow-y: auto;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+
+<body onload="init();">
+
+</body>
+
+<script>
+    var trace = function(str) {
+        console.log(str);
+    }
+
+
+    function init() {
+        var type = "WebGL "
+        if (!PIXI.utils.isWebGLSupported()) {
+            type = "canvas "
+        }
+
+        // document.documentElement.style.overflow = 'hidden';
+        document.body.style.backgroundColor = "black";
+
+        PIXI.utils.sayHello(type);
+
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+
+
+        renderer = PIXI.autoDetectRenderer(w, h);
+
+        //Add the canvas to the HTML document
+        document.body.appendChild(renderer.view);
+
+        renderer.backgroundColor = 0x000000;
+
+
+        main = new Main();
+
+        renderer.render(main.gameHolder);
+        update();
+
+        window.onresize = resizeWindow;
+
+    }
+
+    function resizeWindow() {
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+        renderer.resize(w, h);
+    }
+
+
+
+    function sortOn(arr, condition) {
+        var l = arr.length;
+        var obj1 = null;
+        var obj2 = null;
+        for (var i = 0; i < l; i++) {
+            for (var j = 0; j < l; j++) {
+                obj1 = arr[i];
+                obj2 = arr[j];
+                if (obj1[condition] < obj2[condition]) {
+                    arr[i] = obj2;
+                    arr[j] = obj1;
+                }
+            }
+        }
+    }
+
+    function update() {
+        renderer.render(main.gameHolder);
+        GameTimer.update();
+        requestAnimationFrame(update);
+    }
+
+
+
+    function toggleFullScreen() {
+        var doc = window.document;
+        var docEl = doc.documentElement;
+
+        var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+        var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+
+        if (!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+            requestFullScreen.call(docEl);
+        } else {
+            cancelFullScreen.call(doc);
+        }
+
+        resizeWindow();
+    }
+</script>
+
+</html>
