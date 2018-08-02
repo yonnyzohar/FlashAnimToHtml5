@@ -22,6 +22,7 @@
 	import flash.utils.setTimeout;
 	
 	import com.dynamicTaMaker.utils.PNGEncoder;
+	import com.rectanglePacker.utils.*
 
 	/**
 	 * ...
@@ -48,6 +49,7 @@
 		public var TAbitmapData:BitmapData;
 		//public var placementsXML:String = "";
 		public var viewHeirarchyObj:Object;
+		private var mPacker:RectanglePacker;
 		
 
 		private var outputType:String = "JSON";//Starling / JSON
@@ -133,11 +135,67 @@
 		}
 		
 			
-		
+		///addding rectangle packer!!!
 		private function displayImages():void 
 		{
 			var chosenArrLen:int = chosenArr.length;
-			for (var i:int = 0; i < chosenArrLen; i++ )
+			
+			if (mPacker == null)
+            {
+                mPacker = new RectanglePacker(dimentionsW, dimentionsH, 1);
+            }
+            else
+            {
+                mPacker.reset(dimentionsW, dimentionsH, 1);
+            }
+			
+			var bmp:Bitmap;
+			
+			for (var i:int = 0; i < chosenArrLen; i++)
+            {
+				bmp = new Bitmap(chosenArr[i].img);
+				
+                mPacker.insertRectangle(bmp.width, bmp.height, i);
+            }
+
+            mPacker.packRectangles();
+			
+			var rect:Rectangle = new Rectangle();
+			for (var j:int = 0; j < mPacker.rectangleCount; j++)
+            {
+				rect = mPacker.getRectangle(j, rect);
+				
+				bmp = new Bitmap(chosenArr[j].img);
+				var m_name:String = chosenArr[j].parentLikage;
+				taMC.addChild(bmp);
+				bmp.y = rect.y;
+				bmp.x = rect.x;
+				
+                var index:int = mPacker.getRectangleId(j);
+				
+				if (outputType == "Starling")
+				{
+					taPlacements += '<SubTexture name="' +m_name + '" x="' + bmp.x + '" y="' + bmp.y + '" width="' + bmp.width + '" height="' + bmp.height + '" pivotX="1" pivotY="1"/>'+ brk;
+				}
+				else
+				{
+					var comma:String = ',';
+					if(j == chosenArrLen-1)
+					{
+						comma = '';
+					}
+					
+					taPlacements += '"' + m_name + '":{"frame":{"x":' + bmp.x + ',"y":' + bmp.y + ',"w":' + bmp.width + ',"h":' + bmp.height + '},' + brk;
+					taPlacements += '"rotated": false,' + brk;
+					taPlacements += '"trimmed": true,'+ brk;
+					taPlacements += '"spriteSourceSize": {"x":0,"y":0,"w":' + bmp.width + ',"h":' + bmp.height + '},'+ brk;
+					taPlacements += '"sourceSize": {"w":' + bmp.width + ',"h":' + bmp.height + '}'+ brk;
+					taPlacements += '}'+comma + ''+ brk;
+				}
+				
+            }
+			
+			/*for (var i:int = 0; i < chosenArrLen; i++ )
 			{
 				var bmp:Bitmap = new Bitmap(chosenArr[i].img);
 				var m_name:String = chosenArr[i].parentLikage;
@@ -160,31 +218,8 @@
 				{
 					lastY += bmp.height;
 				}
-
-				if (outputType == "Starling")
-				{
-					taPlacements += '<SubTexture name="' +m_name + '" x="' + bmp.x + '" y="' + bmp.y + '" width="' + bmp.width + '" height="' + bmp.height + '" pivotX="1" pivotY="1"/>'+ brk;
-				}
-				else
-				{
-					var comma:String = ',';
-					if(i == chosenArrLen-1)
-					{
-						comma = '';
-					}
-					
-					
-					taPlacements += '"' + m_name + '":{"frame":{"x":' + bmp.x + ',"y":' + bmp.y + ',"w":' + bmp.width + ',"h":' + bmp.height + '},' + brk;
-					taPlacements += '"rotated": false,' + brk;
-					taPlacements += '"trimmed": true,'+ brk;
-					taPlacements += '"spriteSourceSize": {"x":0,"y":0,"w":' + bmp.width + ',"h":' + bmp.height + '},'+ brk;
-					taPlacements += '"sourceSize": {"w":' + bmp.width + ',"h":' + bmp.height + '}'+ brk;
-					taPlacements += '}'+comma + ''+ brk;
-				}
 				
-			}
-
-			
+			}*/
 		}
 		
 	
