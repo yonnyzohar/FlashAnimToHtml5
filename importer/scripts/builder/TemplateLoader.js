@@ -63,9 +63,14 @@
 	             var _y = parseInt(child.y);
 	             var _w = parseInt(child.width);
 	             var _h = parseInt(child.height);
+	             var _sx = child.scaleX;
+	             var _sy = child.scaleY;
+	             var matrix = child.matrix;
 	             var _a = 0;
 	             var type = child.type;
 	             var asset;
+
+	             //
 
 
 	             if (type == "textField") {
@@ -90,6 +95,7 @@
 	                 img.y = _y;
 	                 img.width = _w;
 	                 img.height = _h;
+
 	             }
 	             if (type == "btn") {
 	                 asset = new GameButton();
@@ -103,10 +109,24 @@
 
 	                 asset.x = _x;
 	                 asset.y = _y;
+	                 //asset.scale.x = _sx;
+	                 //asset.scale.y = _sy;
 	                 asset.interactive = true;
 	                 asset.interactiveChildren = true;
 	                 asset.rotation = this.degreesToRadians(child.rotation);
 	                 asset.alpha = _a;
+
+
+	                 var m = new PIXI.Matrix();
+	                 m.a = matrix.a;
+	                 m.b = matrix.b;
+	                 m.c = matrix.c;
+	                 m.d = matrix.d;
+	                 m.tx = matrix.tx;
+	                 m.ty = matrix.ty;
+
+	                 asset.transform.setFromMatrix(m);
+
 	                 mc[asset.name] = asset;
 	                 mc.addChild(asset);
 	                 this.valsToSetArr.push({
@@ -133,13 +153,30 @@
 	                 _y = parseInt(child.y);
 	                 _w = parseInt(child.width);
 	                 _h = parseInt(child.height);
+	                 _sx = child.scaleX;
+	                 _sy = child.scaleY;
+
 	                 _a = child.alpha;
 
 	                 asset.x = _x;
 	                 asset.y = _y;
 
+	                 asset.scale.x = _sx;
+	                 asset.scale.y = _sy;
 	                 asset.rotation = this.degreesToRadians(child.rotation);
 	                 asset.alpha = _a;
+
+	                 var m = new PIXI.Matrix();
+	                 m.a = matrix.a;
+	                 m.b = matrix.b;
+	                 m.c = matrix.c;
+	                 m.d = matrix.d;
+	                 m.tx = matrix.tx;
+	                 m.ty = matrix.ty;
+
+	                 asset.transform.setFromMatrix(m);
+
+
 	                 mc[asset.name] = asset;
 	                 mc.addChild(asset);
 
