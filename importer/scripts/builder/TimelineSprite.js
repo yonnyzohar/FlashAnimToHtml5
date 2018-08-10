@@ -29,6 +29,14 @@ class TimelineSprite extends PIXI.Container {
 
     }
 
+    removeStateEndEventListener() {
+        this.func = null;
+    }
+
+    addStateEndEventListener(func) {
+        this.func = func;
+    }
+
     play() {
         //innerI = 0;
         GameTimer.addUpdateAble(this);
@@ -71,6 +79,12 @@ class TimelineSprite extends PIXI.Container {
             } else {
                 GameTimer.removeUpdateAble(this);
             }
+
+            if (this.func) {
+                this.func.call(this, this);
+            }
+
+
 
         }
     }

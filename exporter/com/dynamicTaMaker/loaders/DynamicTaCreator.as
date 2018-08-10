@@ -400,7 +400,7 @@
 						
 						obj = {};
 						obj.type = "bmpTextField";
-						obj.name = nodeName;
+						obj.name = child.name;
 						obj.template = templateItem;
 						obj.x = int(child.x);
 						obj.y = int(child.y);
@@ -412,7 +412,7 @@
 						obj.tfType = tf.type;
 						obj.size = tf.defaultTextFormat.size;
 						obj.align = tf.defaultTextFormat.align;
-						obj.font = tf.defaultTextFormat.font;
+						obj.font = fontCharsBDArray.m_uniqueFontName;//tf.defaultTextFormat.font;
 						obj.color = tf.defaultTextFormat.color;
 						obj.z = i;
 
