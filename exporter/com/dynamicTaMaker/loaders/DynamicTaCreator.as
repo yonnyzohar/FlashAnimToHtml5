@@ -30,6 +30,8 @@
 	import com.dynamicTaMaker.utils.*;
 	import com.rectanglePacker.utils.*
 
+	//https://github.com/jakesgordon/bin-packing/blob/master/js/packer.js
+
 	/**
 	 * ...
 	 * @author Yonny Zohar
@@ -46,14 +48,14 @@
 		private var dimentionsH: int = 1024;
 
 		private var view: MovieClip;
-		private var imagesData: Array = [];
+		private var imagesData: Vector.<CTextureData> = new Vector.<CTextureData>();
 		private var taMC: MovieClip = new MovieClip();
 
 		public var taPlacements: String;
 		public var TAbitmapData: BitmapData;
 		//public var placementsXML:String = "";
 		public var viewHeirarchyObj: Object;
-		private var mPacker: RectanglePacker;
+		private var mPacker: CMaxRectBinPack; //RectanglePacker;
 		private var m_defaultFontsList: Array = [];
 		public var m_fontsDataMap: Object = {};
 		public var m_uniqueFontsMap: Object = {};
@@ -83,8 +85,8 @@
 			//printLine("</assets>");
 
 
-			imagesData.sortOn("area", Array.NUMERIC);
-			imagesData.reverse();
+			//imagesData.sortOn("area", Array.NUMERIC);
+			//imagesData.reverse();
 			createTA();
 			createFontsFile();
 			view = null;
@@ -138,72 +140,54 @@
 			var padding: int = 10;
 
 			if (mPacker == null) {
-				mPacker = new RectanglePacker(dimentionsW, dimentionsH, padding);
+				//mPacker = new RectanglePacker(dimentionsW, dimentionsH, padding);
+				mPacker = new CMaxRectBinPack(dimentionsW, dimentionsH);
 			} else {
-				mPacker.reset(dimentionsW, dimentionsH, padding);
+				//mPacker.reset(dimentionsW, dimentionsH, padding);
 			}
 
 			var bmp: Bitmap;
 			var m_name: String;
+			var i: int = 0;
+			var j: int = 0;
+			var font: Object;
+			var index: int;
+			var rect:Rectangle;
+
+
+			mPacker.insertRects(imagesData, null, 1);
+			//mPacker.packRectangles();
 
 
 
-			for (var i: int = 0; i < chosenArrLen; i++) {
-				var imgData: Object = imagesData[i];
 
+			for (index = 0; index < imagesData.length; index++) {
+				var imgData: CTextureData = imagesData[index];
 				bmp = new Bitmap(imgData.img);
-				m_name = imagesData[i].parentLikage;
-
-				mPacker.insertRectangle(bmp.width, bmp.height, i);
+				m_name = imgData.parentLikage;
+				rect = imgData.m_textureRect
 
 				if (m_textureDataArray.length > 0) {
-
-					outer : for (var fontId: String in m_fontsDataMap) {
-						var font: Object = m_fontsDataMap[fontId];
-						for (var j: int = 0; j < font.m_textureDataArray.length; j++) {
-							var linkage: String = font.m_textureDataArray[j].m_extraData.linkage;
-							if(m_name == linkage)
-							{
-								font.m_textureDataArray[j].m_extraData.indexInTA = i;
-								trace("bingo");
-								break outer;
-							}
-						}
-
-					}
-				}
-			}
-
-			mPacker.packRectangles();
-
-			var rect: Rectangle = new Rectangle();
-			for (var j: int = 0; j < mPacker.rectangleCount; j++) {
-
-				var index: int = mPacker.getRectangleId(j);
-
-				rect = mPacker.getRectangle(index, rect);
-				
-				if (m_textureDataArray.length > 0) {
-
-					outer1 : for (fontId in m_fontsDataMap) {
-						var font: Object = m_fontsDataMap[fontId];
-						for (var i: int = 0; i < font.m_textureDataArray.length; i++) {
-							if(font.m_textureDataArray[i].m_extraData.indexInTA == index)
-							{
-								font.m_textureDataArray[i].m_textureRect = {x : rect.x, y: rect.y, width:rect.width, height:rect.height};
-								trace("bingo");
+					outer1: for (var fontId:String in m_fontsDataMap) {
+						font = m_fontsDataMap[fontId];
+						for (i = 0; i < font.m_textureDataArray.length; i++) {
+							if (font.m_textureDataArray[i].m_extraData.linkage == m_name) {
+								font.m_textureDataArray[i].m_textureRect = {
+									x: rect.x,
+									y: rect.y,
+									width: rect.width,
+									height: rect.height
+								};
 								break outer1;
 							}
 						}
 
 					}
 				}
-				
-				
-				
 
-				bmp = new Bitmap(imagesData[index].img);
-				m_name = imagesData[index].parentLikage;
+
+
+
 				taMC.addChild(bmp);
 				bmp.y = rect.y;
 				bmp.x = rect.x;
@@ -214,20 +198,19 @@
 					taPlacements += '<SubTexture name="' + m_name + '" x="' + bmp.x + '" y="' + bmp.y + '" width="' + bmp.width + '" height="' + bmp.height + '" pivotX="1" pivotY="1"/>' + brk;
 				} else {
 					var comma: String = ',';
-					if (j == chosenArrLen - 1) {
+					if (index  == chosenArrLen - 1) {
 						comma = '';
 					}
 
 					taPlacements += '"' + m_name + '":{"frame":{"x":' + bmp.x + ',"y":' + bmp.y + ',"w":' + bmp.width + ',"h":' + bmp.height + '},' + brk;
-					taPlacements += '"rotated": false,' + brk;
-					taPlacements += '"trimmed": true,' + brk;
-					taPlacements += '"spriteSourceSize": {"x":0,"y":0,"w":' + bmp.width + ',"h":' + bmp.height + '},' + brk;
+					//taPlacements += '"rotated": false,' + brk;
+					//taPlacements += '"trimmed": true,' + brk;
+					//taPlacements += '"spriteSourceSize": {"x":0,"y":0,"w":' + bmp.width + ',"h":' + bmp.height + '}' + brk;
 					taPlacements += '"sourceSize": {"w":' + bmp.width + ',"h":' + bmp.height + '}' + brk;
 					taPlacements += '}' + comma + '' + brk;
 				}
 
 			}
-
 
 		}
 
@@ -357,7 +340,7 @@
 				for (var fontId: String in m_fontsDataMap) {
 					var font: Object = m_fontsDataMap[fontId];
 					FontUtils.getFontXMLNode(fontId, font, font.m_textureDataArray, "ta.png", fontsXML);
-					
+
 				}
 
 				// saving the .fnt file.
@@ -369,7 +352,8 @@
 		private function parse(mc: MovieClip, parentObj: Object): void //spacer:String
 		{
 			var obj: Object = {};
-			for (var i: int = 0; i < mc.numChildren; i++) {
+			var i: int = 0;
+			for (i = 0; i < mc.numChildren; i++) {
 				if (mc.getChildAt(i) is MovieClip) {
 					var child: MovieClip = MovieClip(mc.getChildAt(i));
 					var matrix: Matrix = child.transform.matrix;
@@ -389,15 +373,15 @@
 						var fontCharsBDArray: Object = createFont(child, CLSName);
 						var m_textureDataArray = fontCharsBDArray.m_textureDataArray;
 
-						for (var i: int = 0; i < m_textureDataArray.length; i++) {
-							var bd: BitmapData = m_textureDataArray[i].m_bd;
-							var uniqueName: String = getQualifiedClassName(child) + i;
-							m_textureDataArray[i].m_extraData.linkage = uniqueName;
+						for (var j: int = 0; j < m_textureDataArray.length; j++) {
+							var bd: BitmapData = m_textureDataArray[j].m_bd;
+							var uniqueName: String = getQualifiedClassName(child) + j;
+							m_textureDataArray[j].m_extraData.linkage = uniqueName;
 							tryToPush(bd, uniqueName);
 						}
-						
+
 						var tf: TextField = getTextField(child);
-						
+
 						obj = {};
 						obj.type = "bmpTextField";
 						obj.name = child.name;
@@ -412,7 +396,7 @@
 						obj.tfType = tf.type;
 						obj.size = tf.defaultTextFormat.size;
 						obj.align = tf.defaultTextFormat.align;
-						obj.font = fontCharsBDArray.m_uniqueFontName;//tf.defaultTextFormat.font;
+						obj.font = fontCharsBDArray.m_uniqueFontName; //tf.defaultTextFormat.font;
 						obj.color = tf.defaultTextFormat.color;
 						obj.z = i;
 
@@ -671,12 +655,6 @@
 
 			for (i = 0; i < imagesData.length; i++) {
 				if (imagesData[i].img.compare(bd) == 0) {
-					//trace"exists!");
-					rejectsArr.push({
-						parentLikage: _parentLikage,
-						img: bd,
-						area: int(bd.width)
-					});
 					exists = true;
 					break;
 				}
@@ -684,11 +662,13 @@
 			}
 
 			if (exists == false) {
-				imagesData.push({
+				imagesData.push(new CTextureData(bd, _parentLikage));
+
+				/*{
 					parentLikage: _parentLikage,
 					img: bd,
 					area: int(bd.width)
-				});
+				}*/
 			}
 
 		}
@@ -731,7 +711,8 @@
 			stream.close();
 
 		}
-
 	}
+
+
 
 }
