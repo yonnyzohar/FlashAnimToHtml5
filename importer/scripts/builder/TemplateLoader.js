@@ -149,7 +149,7 @@ class TemplateLoader {
                 //asset.scale.y = _sy;
                 asset.interactive = true;
                 asset.interactiveChildren = true;
-                asset.rotation = this.degreesToRadians(child.rotation);
+                //asset.rotation = this.degreesToRadians(child.rotation); //this causes bugs!!
                 asset.alpha = _a;
 
 
@@ -197,9 +197,8 @@ class TemplateLoader {
                 asset.x = _x;
                 asset.y = _y;
 
-                asset.scale.x = _sx;
-                asset.scale.y = _sy;
-                asset.rotation = this.degreesToRadians(child.rotation);
+
+                //asset.rotation = this.degreesToRadians(child.rotation);
                 asset.alpha = _a;
 
                 var m = new PIXI.Matrix();
@@ -211,6 +210,9 @@ class TemplateLoader {
                 m.ty = matrix.ty;
 
                 asset.transform.setFromMatrix(m);
+
+                //asset.scale.x = _sx;
+                //asset.scale.y = _sy;
 
 
                 mc[asset.name] = asset;
