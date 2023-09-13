@@ -109,8 +109,7 @@
     function update() {
         renderer.render(main.gameHolder);
         GameTimer.update();
-        setTimeout(update,100);
-        //requestAnimationFrame(update);
+        requestAnimationFrame(update);
     }
 
 

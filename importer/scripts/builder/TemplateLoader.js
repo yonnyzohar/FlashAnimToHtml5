@@ -86,6 +86,7 @@
 			console.log(_space + baseNode.name);
 	         for (var i = 0; i < baseNode.children.length; i++) {
 	             var child = baseNode.children[i];
+				 console.log(child);
 
 	             var _name = child.name;
 	             var _x = parseFloat(child.x);
@@ -94,9 +95,13 @@
 	             var _h = parseFloat(child.height);
 				 var _scaleX = parseFloat(child.scaleX);
 				 var _scaleY = parseFloat(child.scaleY);
+				 var matrix = child.matrix;
 	             var _a = 0;
 	             var type = child.type;
 	             var asset;
+				 
+
+                
 
 
 	             if (type == "textField") {
@@ -112,6 +117,7 @@
 					tf.anchor.set(0.5);
 					tf.x = (_w/2) + left;
 					tf.y = (_h/2)+top;
+					//asset.transform.setFromMatrix(m);
 
 	                 mc[_name] = tf;
 	                 mc.addChild(tf);
@@ -140,18 +146,27 @@
 	             if (type == "btn") {
 	                 asset = new GameButton();
 	                 asset.name = child.instanceName;
-					 asset.scale.x = _scaleX;
-					 asset.scale.y = _scaleY;
+					 //asset.scale.x = _scaleX;
+					 //asset.scale.y = _scaleY;
 	                 _a = child.alpha;
 
 	                 asset.x = _x;
 	                 asset.y = _y;
 	                 asset.interactive = true;
 	                 asset.interactiveChildren = true;
-	                 asset.rotation = this.degreesToRadians(child.rotation);
+	                 //asset.rotation = this.degreesToRadians(child.rotation);
 	                 asset.alpha = _a;
 	                 mc[asset.name] = asset;
 	                 mc.addChild(asset);
+
+					 var m = new PIXI.Matrix();
+					m.a = matrix.a;
+					m.b = matrix.b;
+					m.c = matrix.c;
+					m.d = matrix.d;
+					m.tx = matrix.tx;
+					m.ty = matrix.ty;
+					 asset.transform.setFromMatrix(m);
 	                 this.valsToSetArr.push({
 	                     mc: asset,
 	                     w: _w,
@@ -173,18 +188,26 @@
 
 
 	                 asset.name = child.instanceName;
-					 asset.scale.x = _scaleX;
-					 asset.scale.y = _scaleY;
+					 //asset.scale.x = _scaleX;
+					 //asset.scale.y = _scaleY;
 	                 _a = child.alpha;
 
 	                 asset.x = _x;
 	                 asset.y = _y;
 
-	                 asset.rotation = this.degreesToRadians(child.rotation);
+	                 //asset.rotation = this.degreesToRadians(child.rotation);
 
 					 console.log(_space + asset.name + " rot " + asset.rotation + " degrees " + child.rotation);
 	                 asset.alpha = _a;
 	                 mc[asset.name] = asset;
+					 var m = new PIXI.Matrix();
+					m.a = matrix.a;
+					m.b = matrix.b;
+					m.c = matrix.c;
+					m.d = matrix.d;
+					m.tx = matrix.tx;
+					m.ty = matrix.ty;
+					 asset.transform.setFromMatrix(m);
 	                 mc.addChild(asset);
 
 	                 this.valsToSetArr.push({

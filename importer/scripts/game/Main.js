@@ -35,20 +35,19 @@ class Main {
     loadView() {
         if (this.assetsLoaded && this.placeMentsLoaded) {
             TemplateLoader.init(this.viewHeirarchyObj);
-
+            var view;
             for(var i = 0; i < this.viewHeirarchyObj.stage.children.length; i++)
             {
                 var templateName = this.viewHeirarchyObj.stage.children[i].name;
                 console.log(templateName);
-                var view = TemplateLoader.spawn(templateName);
+                view = TemplateLoader.spawn(templateName);
                 this.gameHolder.addChild(view);
                 view.looping = true;
-                if(view.gotoAndPlay)
-                {
-                    view.gotoAndPlay(0);
-                }
-                
+                this.playAnims(view);
+               
             }
+
+            //view.anim.gotoAndPlay(0);
 
             //view.ball1.tf.text = "Yonny";
 /*
@@ -69,6 +68,20 @@ class Main {
 
         }
 
+    }
+
+    playAnims(mc)
+    {
+        if(mc.gotoAndPlay)
+        {
+            mc.gotoAndPlay(0);
+            return;
+        }
+        for (let i = 0; i < mc.children.length; i++) {
+            const child = mc.children[i];
+            this.playAnims(child);
+            // Do something with 'child'
+          }
     }
 
     onStartTouched() {

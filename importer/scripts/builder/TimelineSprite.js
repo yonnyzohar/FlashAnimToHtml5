@@ -78,7 +78,9 @@ class TimelineSprite extends PIXI.Container {
                 if (this._frames[k][this.currentFrame]) {
                     var frame = this._frames[k][this.currentFrame];
 
+                    ///
                     if (this[k]) {
+
                         if (frame.x != undefined) {
                             this[k].x = frame.x;
                         }
@@ -88,7 +90,7 @@ class TimelineSprite extends PIXI.Container {
                         if (frame.alpha != undefined) {
                             this[k].alpha = frame.alpha;
                         }
-
+/*
                         if (frame.scaleX != undefined) {
                             this[k].scale.x = frame.scaleX;
                         }
@@ -98,7 +100,21 @@ class TimelineSprite extends PIXI.Container {
                         if (frame.rotation != undefined) {
                             this[k].rotation = frame.rotation;
                         }
+*/
+                        var m = new PIXI.Matrix();
+                        m.a = frame.matrix.a;
+                        m.b = frame.matrix.b;
+                        m.c = frame.matrix.c;
+                        m.d = frame.matrix.d;
+                        m.tx = frame.matrix.tx;
+                        m.ty = frame.matrix.ty;
+
+                        this[k].transform.setFromMatrix(m);
                     }
+
+                    ///
+
+                    
                 }
             }
         }
