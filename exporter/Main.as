@@ -12,7 +12,7 @@
 			//var d:DynamicTaCreator = new DynamicTaCreator();
 			//d.init(new BallAssetsMC());
 			var swfLoader:SWFLoader = new SWFLoader();
-			swfLoader.loadSWF("/Users/yonathan.zohar/Downloads/FlashAnimToHtml5/exporter/assetsMobile.swf", onComplete);
+			swfLoader.loadSWF("/Users/yonathan.zohar/Downloads/FlashAnimToHtml5/exporter/chicken.swf", onComplete);
 			////new AssetsMC()//WrapperMC
 			trace("yo")
 		}

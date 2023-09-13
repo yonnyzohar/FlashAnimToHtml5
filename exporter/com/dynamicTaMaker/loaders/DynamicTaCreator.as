@@ -35,7 +35,7 @@
 	 * texts need to be dynamic singlie line!
 	 * all images need to be bitmaps
 	 * all movieclips holding images need a linkage
-	 * 
+	 * you need to install cwebp through homebrew and place it in /opt/homebrew/bin/
 	 */
 	public class DynamicTaCreator extends EventDispatcher
 	{
@@ -85,9 +85,11 @@
 				stage:{},
 				templates:{}
 			};
+			trace("parse");
 			parse(view, viewHeirarchyObj.stage);
-
+			trace("createTA");
 			createTA();
+			trace("createFonts");
 			createFontsFile();
 			view = null;
 		}
@@ -96,6 +98,7 @@
 		
 		private function createTA():void 
 		{
+			
 
 			taPlacements = '{"frames":{';
 			displayImages();
@@ -412,10 +415,18 @@
 						obj.instanceName = child.name;
 						obj.x = (child.x);
 						obj.y=  (child.y);
-						obj.rotation= (child.rotation);
-						obj.scaleX=(child.scaleX);
-						obj.scaleY=(child.scaleY);
+						//obj.rotation= (child.rotation);
+						//obj.scaleX=(child.scaleX);
+						//obj.scaleY=(child.scaleY);
 						obj.alpha=(child.alpha);
+						obj.matrix = {
+							a: matrix.a,
+							b: matrix.b,
+							c: matrix.c,
+							d: matrix.d,
+							tx: matrix.tx,
+							ty: matrix.ty
+						};
 						
 						addObj(parentObj, obj);
 
@@ -450,7 +461,7 @@
 						//obj.width=int(child.width);
 						//obj.height=int(child.height);
 						//obj.alpha=Number(child.alpha);
-						
+	
 						
 
 						addObj(parentObj, {
@@ -460,10 +471,18 @@
 							instanceName : child.name,
 							x : (child.x),
 							y :  (child.y),
-							rotation : (child.rotation),
-							scaleX :(child.scaleX),
-							scaleY :(child.scaleY),
-							alpha:Number(child.alpha)
+							//rotation : (child.rotation),
+							//scaleX :(child.scaleX),
+							//scaleY :(child.scaleY),
+							alpha:Number(child.alpha),
+							matrix : {
+								a: matrix.a,
+								b: matrix.b,
+								c: matrix.c,
+								d: matrix.d,
+								tx: matrix.tx,
+								ty: matrix.ty
+							}
 
 							});
 
@@ -536,8 +555,10 @@
 						trace(parentTempName);
 						if (parentTempName == "flash.display::MovieClip")
 						{
-							throw new Error("wrappers of images cMust have a linkage");
-							break;
+							parentTempName = mc.name;
+							//printOut(mc);
+							//throw new Error("wrappers of images Must have a linkage");
+							//break;
 						}
 						
 						
@@ -549,12 +570,31 @@
 						obj.width=(shp.width);
 						obj.height=(shp.height);
 						
+						
+						var alternative:Object = tryToPush(getImage(shp), parentTempName);
+						if(alternative != null)
+						{
+							obj.name = alternative.name + "_IMG";
+						}
+
 						addObj(parentObj, obj);
-						tryToPush(getImage(shp), parentTempName);
+						
 					}
 					
 				}
 			}
+		}
+	
+		private function printOut(mc:MovieClip, space:String = " "):void{
+			if(mc != null)
+			{
+				trace(space + mc.name + " / " + getQualifiedClassName(mc));
+				if(mc.parent)
+				{
+					printOut(mc.parent as MovieClip, space + " ");
+				}
+			}
+			
 		}
 
 		private function addTemplate(obj:Object):void
@@ -607,6 +647,15 @@
 						
 						if(child && !visitedTracks[child.name])
 						{
+							var matrix: Matrix = child.transform.matrix;
+							var m = {
+								a: matrix.a,
+								b: matrix.b,
+								c: matrix.c,
+								d: matrix.d,
+								tx: matrix.tx,
+								ty: matrix.ty
+							};
 							var currX:int = int(child.x);
 							var currY:int = int(child.y);
 							var rot:int = int(child.rotation);
@@ -625,8 +674,8 @@
 							if(lastPlacements[child.name] == undefined)
 							{
 								firstTime = true;
-								lastPlacements[child.name]={"x": currX, "y":currY, "rotation": rot, "scaleX": sX,"scaleY" : sY, "alpha": a , frame:true};
-								layers[child.name].push({"x": currX, "y":currY, "rotation": rot, "scaleX": sX,"scaleY" : sY, "alpha": a , frame:true});
+								lastPlacements[child.name]={"matrix" :m, "x": currX, "y":currY, "rotation": rot, "scaleX": sX,"scaleY" : sY, "alpha": a , frame:true};
+								layers[child.name].push({"matrix" :m,"x": currX, "y":currY, "rotation": rot, "scaleX": sX,"scaleY" : sY, "alpha": a , frame:true});
 								
 							}
 							else
@@ -661,7 +710,7 @@
 									o.alpha = a;
 									lastPlacements[child.name].alpha = a;
 								}
-								
+								o.matrix = m;
 								layers[child.name].push(o);
 							}
 						
@@ -678,14 +727,18 @@
 		
 		
 		
-		private function tryToPush(bd: BitmapData, _parentLikage: String): void {
+		private function tryToPush(bd: BitmapData, _parentLikage: String): Object {
 			var exists: Boolean = false;
-
+			var img:BitmapData;
+			var alternateLinkage:String;
+			
 			//if this linkage exists, don't bother
 			for (var i: int = 0; i < imagesData.length; i++) {
 				if (_parentLikage == imagesData[i].parentLikage) {
 					trace(_parentLikage + " exists by name, ignoring");
 					exists = true;
+					alternateLinkage = imagesData[i].parentLikage;
+					img = imagesData[i].img;
 					break;
 				}
 			}
@@ -693,6 +746,8 @@
 			for (i = 0; i < imagesData.length; i++) {
 				if (imagesData[i].img.compare(bd) == 0) {
 					exists = true;
+					img = imagesData[i].img;
+					alternateLinkage = imagesData[i].parentLikage;
 					trace(_parentLikage + " exists by shape, ignoring");
 					break;
 				}
@@ -701,13 +756,14 @@
 
 			if (exists == false) {
 				imagesData.push(new CTextureData(bd, _parentLikage));
-
-				/*{
-					parentLikage: _parentLikage,
-					img: bd,
-					area: int(bd.width)
-				}*/
 			}
+			else
+			{
+				var obj = {};
+				obj.name = alternateLinkage;
+				return obj;
+			}
+			return null;
 
 		}
 		private function printLine(str:String):void

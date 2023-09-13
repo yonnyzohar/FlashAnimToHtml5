@@ -111,7 +111,7 @@
 		 */
 		protected function completeHandler(event: Event): void {
 			// get the root movie clip of the fla
-
+			trace("load complete");
 			var mc:MovieClip = event.target.content as MovieClip;
 			event.target.removeEventListener(Event.COMPLETE, completeHandler);
 			event.target.removeEventListener(IOErrorEvent.IO_ERROR, failedHandler);
