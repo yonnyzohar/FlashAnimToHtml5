@@ -1,257 +1,230 @@
-//turn this into a scene, and create a scenesStack	 
-class TemplateLoader {
-
-    static init(_placementFiles) {
-        this.scenes = [];
-        this.valsToSetArr = [];
-
-        for (var i = 0; i < _placementFiles.length; i++) {
-            var _placementsObj = _placementFiles[i];
-            var templates = this.getAllAssets(_placementsObj, {});
-            this.scenes.push({
-                placementsObj: _placementsObj,
-                templates: templates
-            });
-        }
-    }
-
-    static get(tempName) {
-
-        for (var i = 0; i < this.scenes.length; i++) {
-            var scene = this.scenes[i];
-
-            var baseNode = scene.templates[tempName];
-            if (baseNode) {
-                var mc;
-                if (baseNode.frames) {
-                    mc = new TimelineSprite();
-                    mc.setFrames(this.fixRotation(baseNode.frames));
-                } else {
-                    mc = new PIXI.Container();
-                }
-
-                mc.name = baseNode.instanceName;
-
-                this.createAsset(mc, baseNode);
-
-                this.valsToSetArr.reverse();
-                for (var i = 0; i < this.valsToSetArr.length; i++) {
-                    var val = this.valsToSetArr[i];
-                    val.mc.width = val.w;
-                    val.mc.height = val.h;
-                }
-                this.valsToSetArr.splice(0);
-
-                return mc;
-            }
-
-        }
-
-        return null;
-    }
-
-    static getAllAssets(o, allAssets) {
-        for (var k in o) {
-            if (k == "type" && o[k] == "asset") {
-                allAssets[o["name"]] = o;
-            }
-
-            if (o[k] instanceof Object) {
-                this.getAllAssets(o[k], allAssets);
-            }
-
-
-        }
-        return allAssets;
-    }
+	 class TemplateLoader {
 
 
 
+	     static init(_placementsObj) {
+	         this.valsToSetArr = [];
+	         this.placementsObj = _placementsObj;
+	         this.templates = this.placementsObj.templates;//this.getAllAssets(this.placementsObj, this.templates);
+			 this.animTracks = this.placementsObj.animTracks;
+	     }
+/*
+	     static getAllAssets(o, allAssets) {
+	         for (var k in o) {
+	             if (k == "type" && o[k] == "asset") {
+	                 allAssets[o["name"]] = o;
+	             }
 
-    static degreesToRadians(degrees) {
-        return degrees * Math.PI / 180;
-    }
-
-
-    static createAsset(mc, baseNode) {
-        for (var i = 0; i < baseNode.children.length; i++) {
-            var child = baseNode.children[i];
-
-            var _name = child.name;
-            var _x = parseInt(child.x);
-            var _y = parseInt(child.y);
-            var _w = parseInt(child.width);
-            var _h = parseInt(child.height);
-            var _sx = child.scaleX;
-            var _sy = child.scaleY;
-            var matrix = child.matrix;
-            var _a = 0;
-            var type = child.type;
-            var asset;
+	             if (o[k] instanceof Object) {
+	                 this.getAllAssets(o[k], allAssets);
+	             }
 
 
-            /*'123,456,789M', {
-    font: '50px AvenirNextRoundedProBold_16676463_96',
-    align: 'right'
-});*/
-            if (type == "bmpTextField") {
-                var tfType = child.tfType;
-                var tf = new GameBitmapTextField(child.text + "", {
-                    font: child.size + "px " + child.font,
-                    align: 'center'
-                }, _w, _h);
+	         }
+	         return allAssets;
+	     }
+		 
+*/
+		 static getFrames(_templateName)
+		 {
+			var frames = {};
+			var baseNode = this.templates[_templateName];
+			var num = 0;
+			 if(baseNode.children)
+			 {
+				
+				for(var i = 0; i < baseNode.children.length; i++)
+				{
+					var childInstanceName = baseNode.children[i].instanceName;
+					if(this.animTracks[childInstanceName])
+					{
+						num++;
+						frames[childInstanceName] = this.animTracks[childInstanceName];
+					}
+				}
+			 }
 
-                //child.font, child.size, child.color
-
-                tf.name = _name;
-                tf.x = _x;
-                tf.y = _y;
-                mc[_name] = tf;
-                mc.addChild(tf);
-            }
-            if (type == "textField") {
-                var tfType = child.tfType;
-                var tf = new GameTextField(_w, _h, child.text + "", child.font, child.size, child.color);
-
-                tf.name = _name;
-                tf.x = _x;
-                tf.y = _y;
-                mc[_name] = tf;
-                mc.addChild(tf);
-            }
-            if (type == "img") {
-                var texName = _name;
-
-                texName = texName.substr(0, texName.indexOf("_"));
-                var img = TextureAtlas.createFrame(texName);
-
-                mc[texName] = img;
-                mc.addChild(img);
-                img.x = _x;
-                img.y = _y;
-                img.width = _w;
-                img.height = _h;
-
-            }
-            if (type == "btn") {
-                asset = new GameButton();
-                asset.name = child.instanceName;
-
-                _x = parseInt(child.x);
-                _y = parseInt(child.y);
-                _w = parseInt(child.width);
-                _h = parseInt(child.height);
-                _a = child.alpha;
-
-                asset.x = _x;
-                asset.y = _y;
-                //asset.scale.x = _sx;
-                //asset.scale.y = _sy;
-                asset.interactive = true;
-                asset.interactiveChildren = true;
-                //asset.rotation = this.degreesToRadians(child.rotation); //this causes bugs!!
-                asset.alpha = _a;
+			 return frames;
+		 }
 
 
-                var m = new PIXI.Matrix();
-                m.a = matrix.a;
-                m.b = matrix.b;
-                m.c = matrix.c;
-                m.d = matrix.d;
-                m.tx = matrix.tx;
-                m.ty = matrix.ty;
+	     static spawn(tempName) {
+	         var baseNode = this.templates[tempName];
+	         var mc;
+			 var frames = this.getFrames(tempName);
+			 
 
-                asset.transform.setFromMatrix(m);
+	         if (Object.keys(frames).length > 0) {
+	             mc = new TimelineSprite();
+	             mc.setFrames(this.fixRotation(frames));
+	         } else {
+	             mc = new PIXI.Container();
+	         }
 
-                mc[asset.name] = asset;
-                mc.addChild(asset);
-                this.valsToSetArr.push({
-                    mc: asset,
-                    w: _w,
-                    h: _h
-                });
+	         mc.name = baseNode.instanceName;
 
+	         this.createAsset(mc, baseNode, " ");
 
-            }
-            if (type == "asset") {
+	         //this.valsToSetArr.reverse();
+	         //for (var i = 0; i < this.valsToSetArr.length; i++) {
+	         //    var val = this.valsToSetArr[i];
+	        //     val.mc.width = val.w;
+	         //    val.mc.height = val.h;
+	         //}
+	        // this.valsToSetArr.splice(0);
 
-                if (child.frames) {
-                    asset = new TimelineSprite();
-                    asset.setFrames(this.fixRotation(child.frames));
-                } else {
-                    asset = new PIXI.Container();
-                }
-
-
-                asset.name = child.instanceName;
-
-                _x = parseInt(child.x);
-                _y = parseInt(child.y);
-                _w = parseInt(child.width);
-                _h = parseInt(child.height);
-                _sx = child.scaleX;
-                _sy = child.scaleY;
-
-                _a = child.alpha;
-
-                asset.x = _x;
-                asset.y = _y;
+	         return mc;
+	     }
 
 
-                //asset.rotation = this.degreesToRadians(child.rotation);
-                asset.alpha = _a;
-
-                var m = new PIXI.Matrix();
-                m.a = matrix.a;
-                m.b = matrix.b;
-                m.c = matrix.c;
-                m.d = matrix.d;
-                m.tx = matrix.tx;
-                m.ty = matrix.ty;
-
-                asset.transform.setFromMatrix(m);
-
-                //asset.scale.x = _sx;
-                //asset.scale.y = _sy;
+	     static degreesToRadians(degrees) {
+	         return degrees * Math.PI / 180;
+	     }
 
 
-                mc[asset.name] = asset;
-                mc.addChild(asset);
+	     static createAsset(mc, baseNode, _space) {
+			console.log(_space + baseNode.name);
+	         for (var i = 0; i < baseNode.children.length; i++) {
+	             var child = baseNode.children[i];
 
-                this.valsToSetArr.push({
-                    mc: asset,
-                    w: _w,
-                    h: _h
-                });
+	             var _name = child.name;
+	             var _x = parseFloat(child.x);
+	             var _y = parseFloat(child.y);
+	             var _w = parseFloat(child.width);
+	             var _h = parseFloat(child.height);
+				 var _scaleX = parseFloat(child.scaleX);
+				 var _scaleY = parseFloat(child.scaleY);
+	             var _a = 0;
+	             var type = child.type;
+	             var asset;
 
 
-            }
+	             if (type == "textField") {
+	                 var tfType = child.tfType;
+					 var boundsObj = {x:_x, y:_y,w:_w,h:_h};
+	                 var tf = new GameTextField(boundsObj, child.text + "", child.font, child.size, child.color);
 
-            if (child.children) {
-                if (asset) {
-                    this.createAsset(asset, child);
-                } else {
-                    this.createAsset(mc, child);
-                }
-            }
-        }
-    }
+	                tf.name = _name;
+	                var left = boundsObj.x;
+					var right = left + boundsObj.w;
+					var top = boundsObj.y;
+					var btm = top + boundsObj.h;
+					tf.anchor.set(0.5);
+					tf.x = (_w/2) + left;
+					tf.y = (_h/2)+top;
 
-    static fixRotation(_frames) {
-        for (var k in _frames) {
-            for (var i = 0; i < _frames[k].length; i++) {
-                if (_frames[k][i]) {
-                    if (_frames[k][i].rotation != undefined) {
-                        var rotation = _frames[k][i].rotation;
-                        _frames[k][i].rotation = this.degreesToRadians(rotation);
-                    }
+	                 mc[_name] = tf;
+	                 mc.addChild(tf);
 
-                }
-            }
-        }
+					 const border = new PIXI.Graphics();
+					border.lineStyle(2, 0xFF0000); // Border color in hexadecimal and line thickness
+					border.drawRect(left , top, _w , _h ); // Adjust border size
+					mc.addChild(border);
 
-        return _frames;
-    }
-}
+					 
 
-TemplateLoader.valsToSetArr = [];
+	             }
+	             if (type == "img") {
+	                 var texName = _name;
+
+	                 texName = texName.substr(0, texName.indexOf("_"));
+	                 var img = TextureAtlas.createFrame(texName);
+
+	                 mc[texName] = img;
+	                 mc.addChild(img);
+	                 img.x = _x;
+	                 img.y = _y;
+	                 img.width = _w;
+	                 img.height = _h;
+	             }
+	             if (type == "btn") {
+	                 asset = new GameButton();
+	                 asset.name = child.instanceName;
+					 asset.scale.x = _scaleX;
+					 asset.scale.y = _scaleY;
+	                 _a = child.alpha;
+
+	                 asset.x = _x;
+	                 asset.y = _y;
+	                 asset.interactive = true;
+	                 asset.interactiveChildren = true;
+	                 asset.rotation = this.degreesToRadians(child.rotation);
+	                 asset.alpha = _a;
+	                 mc[asset.name] = asset;
+	                 mc.addChild(asset);
+	                 this.valsToSetArr.push({
+	                     mc: asset,
+	                     w: _w,
+	                     h: _h
+	                 });
+
+
+	             }
+	             if (type == "asset") {
+					
+					var frames = this.getFrames(child.name);
+
+					if (Object.keys(frames).length > 0) {
+	                     asset = new TimelineSprite();
+	                     asset.setFrames(this.fixRotation(frames));
+	                 } else {
+	                     asset = new PIXI.Container();
+	                 }
+
+
+	                 asset.name = child.instanceName;
+					 asset.scale.x = _scaleX;
+					 asset.scale.y = _scaleY;
+	                 _a = child.alpha;
+
+	                 asset.x = _x;
+	                 asset.y = _y;
+
+	                 asset.rotation = this.degreesToRadians(child.rotation);
+
+					 console.log(_space + asset.name + " rot " + asset.rotation + " degrees " + child.rotation);
+	                 asset.alpha = _a;
+	                 mc[asset.name] = asset;
+	                 mc.addChild(asset);
+
+	                 this.valsToSetArr.push({
+	                     mc: asset,
+	                     w: _w,
+	                     h: _h
+	                 });
+
+
+	             }
+
+				 var childTempObj = this.templates[child.name];
+
+	             if (childTempObj && childTempObj.children) {
+	                 if (asset) {
+	                     this.createAsset(asset, childTempObj, _space + " ");
+	                 } else {
+	                     this.createAsset(mc, childTempObj, _space + " ");
+	                 }
+	             }
+	         }
+	     }
+
+	     static fixRotation(_frames) {
+	         for (var k in _frames) {
+	             for (var i = 0; i < _frames[k].length; i++) {
+	                 if (_frames[k][i]) {
+	                     if (_frames[k][i].rotation != undefined) {
+	                         var rotation = _frames[k][i].rotation;
+	                         _frames[k][i].rotation = this.degreesToRadians(rotation);
+	                     }
+
+	                 }
+	             }
+	         }
+
+	         return _frames;
+	     }
+	 }
+
+	 TemplateLoader.placementsObj = null;
+	 TemplateLoader.templates = {};
+	 TemplateLoader.valsToSetArr = [];

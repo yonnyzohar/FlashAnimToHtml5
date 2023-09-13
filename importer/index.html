@@ -3,26 +3,27 @@
 
 <head>
     <meta charset="UTF-8">
-    <title> TEST</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <title>PARSER</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="scripts/engine/FitToScreenUtil.js"></script>
     <script src="scripts/tweenMax/TweenMax.min.js"></script>
     <script src="scripts/engine/PIXI.js"></script>
     <script src="scripts/engine/TextField.js"></script>
-    <script src="scripts/engine/Pool.js"></script>
     <script src="scripts/engine/TileShower.js"></script>
     <script src="scripts/builder/TemplateLoader.js"></script>
     <script src="scripts/builder/GameTimer.js"></script>
     <script src="scripts/builder/TimelineSprite.js"></script>
     <script src="scripts/builder/GameTextField.js"></script>
-    <script src="scripts/builder/GameBitmapTextField.js"></script>
     <script src="scripts/builder/GameButton.js"></script>
-    <script src="scripts/builder/Resizeables.js"></script>
     <script src="scripts/engine/EventDispatcher.js"></script>
     <script src="scripts/engine/TextureAtlas.js"></script>
     <script src="scripts/engine/Keyboard.js"></script>
+
+
+    <script src="scripts/game/Main.js"></script>
+
+
 
 
 
@@ -37,28 +38,15 @@
         margin: 0;
         padding: 0;
     }
-
 </style>
 
-<body onload="pageLoaded();">
+<body onload="init();">
 
 </body>
 
 <script>
     var trace = function(str) {
-        //console.log(str);
-    }
-
-    function pageLoaded() {
-        WebFont.load({
-            google: {
-                families: ['Comfortaa'] //families: ['Snippet', 'Arvo:700italic', 'Podkova:700']
-            },
-            active: e => {
-                console.log("font loaded!");
-                init();
-            }
-        });
+        console.log(str);
     }
 
 
@@ -69,7 +57,7 @@
         }
 
         // document.documentElement.style.overflow = 'hidden';
-        document.body.style.backgroundColor = "black";
+        document.body.style.backgroundColor = "white";
 
         PIXI.utils.sayHello(type);
 
@@ -82,19 +70,12 @@
         //Add the canvas to the HTML document
         document.body.appendChild(renderer.view);
 
-        renderer.backgroundColor = 0x000000;
+        renderer.backgroundColor = 0xffffff;
 
 
         main = new Main();
 
-        Model.theStage = {
-            width: w,
-            height: h
-        }
-
-        GameTimer.init(24);
-
-        renderer.render(Model.gameHolder);
+        renderer.render(main.gameHolder);
         update();
 
         window.onresize = resizeWindow;
@@ -104,12 +85,7 @@
     function resizeWindow() {
         var w = window.innerWidth;
         var h = window.innerHeight;
-        Model.theStage = {
-            width: w,
-            height: h
-        }
         renderer.resize(w, h);
-        Resizeables.resize();
     }
 
 
@@ -131,9 +107,10 @@
     }
 
     function update() {
-        renderer.render(Model.gameHolder);
+        renderer.render(main.gameHolder);
         GameTimer.update();
-        requestAnimationFrame(update);
+        setTimeout(update,100);
+        //requestAnimationFrame(update);
     }
 
 
@@ -153,7 +130,6 @@
 
         resizeWindow();
     }
-
 </script>
 
 </html>

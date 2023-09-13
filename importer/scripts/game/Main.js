@@ -11,7 +11,7 @@ class Main {
 
         $.getJSON(url, this.placementsRetreived.bind(this));
 
-        TextureAtlas.init(this.loadedComplete.bind(this), this.loadProgress, "assets/ta.json");
+        TextureAtlas.init(this.loadedComplete.bind(this), this.loadProgress, "assets/ta.json?rnd="+ Math.random());
 
     }
 
@@ -35,25 +35,32 @@ class Main {
     loadView() {
         if (this.assetsLoaded && this.placeMentsLoaded) {
             TemplateLoader.init(this.viewHeirarchyObj);
+
+            for(var i = 0; i < this.viewHeirarchyObj.stage.children.length; i++)
+            {
+                var templateName = this.viewHeirarchyObj.stage.children[i].name;
+                console.log(templateName);
+                var view = TemplateLoader.spawn(templateName);
+                this.gameHolder.addChild(view);
+                view.looping = true;
+                if(view.gotoAndPlay)
+                {
+                    view.gotoAndPlay(0);
+                }
+                
+            }
+
+            //view.ball1.tf.text = "Yonny";
+/*
             var viewName = "BigAnimMC";
             var view = TemplateLoader.get(viewName); //HudUI // MenuScreenMC // DetailsPanelMC
             if (viewName == "BigAnimMC") {
-                view.looping = true;
-                view.gotoAndPlay(0);
+                
             }
-            if (viewName == "MenuScreenMC") {
-                view.looping = false;
-                view.gotoAndPlay(0);
-                view.btn1.tf.text = "NEW GAME";
-                view.btn2.tf.text = "LOAD GAME";
-                view.btn3.tf.text = "AI GAME";
-                view.disclaimerTXT.visible = false;
-            }
-
 
             this.view = view;
             this.gameHolder.addChild(view);
-
+*/
 
             //view.btn1.addEventListener(TouchEvent.TOUCH, onGameClicked);
             //view.btn2.addEventListener(TouchEvent.TOUCH, onLoadClicked);

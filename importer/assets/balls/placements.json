@@ -1,0 +1,2513 @@
+{
+    "templates":
+    {
+        "instance12":
+        {
+            "template": false,
+            "type": "asset",
+            "children":
+            [
+                {
+                    "x": -1,
+                    "type": "img",
+                    "height": 70,
+                    "name": "flash.display::MovieClip_IMG",
+                    "y": -1,
+                    "width": 15
+                }
+            ],
+            "name": "instance12"
+        },
+        "ShavShav":
+        {
+            "template": true,
+            "type": "asset",
+            "children":
+            [
+                {
+                    "x": -16.9,
+                    "scaleX": 0.19229213034525527,
+                    "type": "asset",
+                    "alpha": 1,
+                    "y": -15.3,
+                    "scaleY": 0.3495828202887595,
+                    "instanceName": "instance10",
+                    "template": false,
+                    "name": "instance10",
+                    "rotation": -45
+                },
+                {
+                    "x": 15.3,
+                    "scaleX": 0.19229213034525527,
+                    "type": "asset",
+                    "alpha": 1,
+                    "y": -16.6,
+                    "scaleY": 0.3317799914777579,
+                    "instanceName": "instance12",
+                    "template": false,
+                    "name": "instance12",
+                    "rotation": 45
+                }
+            ],
+            "name": "ShavShav"
+        },
+        "SquareMC":
+        {
+            "template": true,
+            "type": "asset",
+            "children":
+            [
+                {
+                    "x": 0,
+                    "scaleX": 1,
+                    "type": "asset",
+                    "alpha": 1,
+                    "y": 0,
+                    "scaleY": 1,
+                    "instanceName": "instance7",
+                    "template": false,
+                    "name": "instance7",
+                    "rotation": 0
+                },
+                {
+                    "x": 6,
+                    "scaleX": 1,
+                    "type": "asset",
+                    "alpha": 1,
+                    "y": -0.8,
+                    "scaleY": 1,
+                    "instanceName": "instance9",
+                    "template": true,
+                    "name": "ShavShav",
+                    "rotation": 0
+                }
+            ],
+            "name": "SquareMC"
+        },
+        "instance7":
+        {
+            "template": false,
+            "type": "asset",
+            "children":
+            [
+                {
+                    "x": -1,
+                    "type": "img",
+                    "height": 70,
+                    "name": "flash.display::MovieClip_IMG",
+                    "y": -1,
+                    "width": 15
+                }
+            ],
+            "name": "instance7"
+        },
+        "BallMC2":
+        {
+            "template": true,
+            "type": "asset",
+            "children":
+            [
+                {
+                    "x": -26.75,
+                    "scaleX": 1,
+                    "type": "asset",
+                    "alpha": 1,
+                    "y": -26.75,
+                    "scaleY": 1,
+                    "instanceName": "instance5",
+                    "template": true,
+                    "name": "InnerBallMC",
+                    "rotation": 0
+                },
+                {
+                    "x": -6,
+                    "scaleX": 1,
+                    "type": "asset",
+                    "alpha": 1,
+                    "y": -95,
+                    "scaleY": 1,
+                    "instanceName": "sq",
+                    "template": true,
+                    "name": "SquareMC",
+                    "rotation": 0
+                }
+            ],
+            "name": "BallMC2"
+        },
+        "BigAnimMC":
+        {
+            "template": true,
+            "type": "asset",
+            "children":
+            [
+                {
+                    "x": 26.75,
+                    "scaleX": 0.4766387939453125,
+                    "type": "asset",
+                    "alpha": 1,
+                    "y": 26.75,
+                    "scaleY": 1.8224334716796875,
+                    "instanceName": "ball1",
+                    "template": true,
+                    "name": "BallMC",
+                    "rotation": 0
+                },
+                {
+                    "x": 279.75,
+                    "scaleX": 1,
+                    "type": "asset",
+                    "alpha": 1,
+                    "y": 180.75,
+                    "scaleY": 1,
+                    "instanceName": "bob",
+                    "template": true,
+                    "name": "BallMC2",
+                    "rotation": 0
+                },
+                {
+                    "x": 513.75,
+                    "scaleX": 1,
+                    "type": "asset",
+                    "alpha": 1,
+                    "y": 26.75,
+                    "scaleY": 1,
+                    "instanceName": "ball2",
+                    "template": true,
+                    "name": "BallMC",
+                    "rotation": 0
+                },
+                {
+                    "x": 39.75,
+                    "scaleX": 1.299072265625,
+                    "type": "asset",
+                    "alpha": 1,
+                    "y": 363.75,
+                    "scaleY": 0.4766387939453125,
+                    "instanceName": "ball3",
+                    "template": true,
+                    "name": "BallMC",
+                    "rotation": 0
+                },
+                {
+                    "x": 513.75,
+                    "scaleX": 1.7102562547496711,
+                    "type": "asset",
+                    "alpha": 1,
+                    "y": 363.9,
+                    "scaleY": 0.4746585752255964,
+                    "instanceName": "ball4",
+                    "template": true,
+                    "name": "BallMC",
+                    "rotation": -29.9998779296875
+                }
+            ],
+            "name": "BigAnimMC"
+        },
+        "instance10":
+        {
+            "template": false,
+            "type": "asset",
+            "children":
+            [
+                {
+                    "x": -1,
+                    "type": "img",
+                    "height": 70,
+                    "name": "flash.display::MovieClip_IMG",
+                    "y": -1,
+                    "width": 15
+                }
+            ],
+            "name": "instance10"
+        },
+        "BallMC":
+        {
+            "template": true,
+            "type": "asset",
+            "children":
+            [
+                {
+                    "x": -28,
+                    "type": "img",
+                    "height": 56,
+                    "name": "BallMC_IMG",
+                    "y": -28,
+                    "width": 56
+                },
+                {
+                    "x": -40,
+                    "tfType": "dynamic",
+                    "y": -78,
+                    "rotation": 0,
+                    "color": 16711680,
+                    "template": false,
+                    "z": 1,
+                    "font": "Times Roman",
+                    "text": "ABC\r",
+                    "type": "textField",
+                    "align": "center",
+                    "height": 37,
+                    "name": "tf",
+                    "width": 78,
+                    "size": 33,
+                    "alpha": 1
+                }
+            ],
+            "name": "BallMC"
+        },
+        "InnerBallMC":
+        {
+            "template": true,
+            "type": "asset",
+            "children":
+            [
+                {
+                    "x": -1,
+                    "type": "img",
+                    "height": 56,
+                    "name": "InnerBallMC_IMG",
+                    "y": -1,
+                    "width": 56
+                }
+            ],
+            "name": "InnerBallMC"
+        }
+    },
+    "stage":
+    {
+        "children":
+        [
+            {
+                "x": 0,
+                "scaleX": 1,
+                "type": "asset",
+                "alpha": 1,
+                "y": 0,
+                "scaleY": 1,
+                "instanceName": "instance3",
+                "template": true,
+                "name": "BigAnimMC",
+                "rotation": 0
+            }
+        ]
+    },
+    "animTracks":
+    {
+        "bob":
+        [
+            {
+                "frame": true,
+                "x": 279,
+                "scaleX": 1,
+                "alpha": 1,
+                "y": 180,
+                "scaleY": 1,
+                "rotation": 0
+            },
+            {
+                "scaleY": 1.069427490234375,
+                "scaleX": 1.069427490234375,
+                "y": 190,
+                "frame": true
+            },
+            {
+                "scaleY": 1.13885498046875,
+                "scaleX": 1.13885498046875,
+                "y": 200,
+                "frame": true
+            },
+            {
+                "scaleY": 1.2082672119140625,
+                "scaleX": 1.2082672119140625,
+                "y": 210,
+                "frame": true
+            },
+            {
+                "scaleY": 1.2777099609375,
+                "scaleX": 1.2777099609375,
+                "y": 220,
+                "frame": true
+            },
+            {
+                "scaleY": 1.347137451171875,
+                "scaleX": 1.347137451171875,
+                "y": 230,
+                "frame": true
+            },
+            {
+                "scaleY": 1.41656494140625,
+                "scaleX": 1.41656494140625,
+                "y": 240,
+                "frame": true
+            },
+            {
+                "scaleY": 1.485992431640625,
+                "scaleX": 1.485992431640625,
+                "y": 249,
+                "frame": true
+            },
+            {
+                "scaleY": 1.5554046630859375,
+                "scaleX": 1.5554046630859375,
+                "y": 259,
+                "frame": true
+            },
+            {
+                "scaleY": 1.6248321533203125,
+                "scaleX": 1.6248321533203125,
+                "y": 269,
+                "frame": true
+            },
+            {
+                "scaleY": 1.6942596435546875,
+                "scaleX": 1.6942596435546875,
+                "y": 279,
+                "frame": true
+            },
+            {
+                "scaleY": 1.763702392578125,
+                "scaleX": 1.763702392578125,
+                "y": 289,
+                "frame": true
+            },
+            {
+                "scaleY": 1.8331146240234375,
+                "scaleX": 1.8331146240234375,
+                "y": 299,
+                "frame": true
+            },
+            {
+                "scaleY": 1.9025421142578125,
+                "scaleX": 1.9025421142578125,
+                "y": 309,
+                "frame": true
+            },
+            {
+                "scaleY": 1.9719696044921875,
+                "scaleX": 1.9719696044921875,
+                "y": 318,
+                "frame": true
+            },
+            {
+                "scaleY": 1.9070892333984375,
+                "scaleX": 1.9070892333984375,
+                "y": 309,
+                "frame": true
+            },
+            {
+                "scaleY": 1.8423004150390625,
+                "scaleX": 1.8423004150390625,
+                "y": 300,
+                "frame": true
+            },
+            {
+                "scaleY": 1.77752685546875,
+                "scaleX": 1.77752685546875,
+                "y": 291,
+                "frame": true
+            },
+            {
+                "scaleY": 1.71270751953125,
+                "scaleX": 1.71270751953125,
+                "y": 281,
+                "frame": true
+            },
+            {
+                "scaleY": 1.647918701171875,
+                "scaleX": 1.647918701171875,
+                "y": 272,
+                "frame": true
+            },
+            {
+                "scaleY": 1.5831451416015625,
+                "scaleX": 1.5831451416015625,
+                "y": 263,
+                "frame": true
+            },
+            {
+                "scaleY": 1.5183258056640625,
+                "scaleX": 1.5183258056640625,
+                "y": 254,
+                "frame": true
+            },
+            {
+                "scaleY": 1.4535064697265625,
+                "scaleX": 1.4535064697265625,
+                "y": 245,
+                "frame": true
+            },
+            {
+                "scaleY": 1.38873291015625,
+                "scaleX": 1.38873291015625,
+                "y": 235,
+                "frame": true
+            },
+            {
+                "scaleY": 1.323944091796875,
+                "scaleX": 1.323944091796875,
+                "y": 226,
+                "frame": true
+            },
+            {
+                "scaleY": 1.2591400146484375,
+                "scaleX": 1.2591400146484375,
+                "y": 217,
+                "frame": true
+            },
+            {
+                "scaleY": 1.1943511962890625,
+                "scaleX": 1.1943511962890625,
+                "y": 208,
+                "frame": true
+            },
+            {
+                "scaleY": 1.1295318603515625,
+                "scaleX": 1.1295318603515625,
+                "y": 199,
+                "frame": true
+            },
+            {
+                "scaleY": 1.06475830078125,
+                "scaleX": 1.06475830078125,
+                "y": 189,
+                "frame": true
+            }
+        ],
+        "instance5":
+        [
+            {
+                "frame": true,
+                "x": -26,
+                "scaleX": 1,
+                "alpha": 1,
+                "y": -26,
+                "scaleY": 1,
+                "rotation": 0
+            },
+            {
+                "frame": true,
+                "x": -29,
+                "scaleX": 0.9999925532333817,
+                "y": -28,
+                "rotation": -5,
+                "scaleY": 1.1593435420933058
+            },
+            {
+                "frame": true,
+                "x": -33,
+                "scaleX": 0.9999875557067432,
+                "y": -29,
+                "rotation": -11,
+                "scaleY": 1.318700404122282
+            },
+            {
+                "frame": true,
+                "x": -37,
+                "scaleX": 0.9999945318409681,
+                "y": -30,
+                "rotation": -16,
+                "scaleY": 1.478065119182796
+            },
+            {
+                "frame": true,
+                "x": -41,
+                "scaleX": 0.9999916359898097,
+                "scaleY": 1.6374430286534298,
+                "rotation": -22
+            },
+            {
+                "frame": true,
+                "x": -46,
+                "scaleX": 0.9999680998303638,
+                "y": -29,
+                "rotation": -28,
+                "scaleY": 1.7968012495299464
+            },
+            {
+                "frame": true,
+                "x": -51,
+                "scaleX": 0.9999691806641063,
+                "y": -28,
+                "rotation": -33,
+                "scaleY": 1.9561537933191886
+            },
+            {
+                "frame": true,
+                "x": -56,
+                "scaleX": 0.9999725792755642,
+                "y": -27,
+                "rotation": -39,
+                "scaleY": 2.1155403022525956
+            },
+            {
+                "frame": true,
+                "x": -61,
+                "scaleX": 0.9999902891687796,
+                "y": -24,
+                "rotation": -45,
+                "scaleY": 2.2749209927246676
+            },
+            {
+                "frame": true,
+                "x": -62,
+                "scaleX": 0.9999281632289906,
+                "y": -32,
+                "rotation": -40,
+                "scaleY": 2.4341853672732037
+            },
+            {
+                "frame": true,
+                "scaleX": 0.9999210818496793,
+                "scaleY": 2.593558814870818,
+                "y": -39,
+                "rotation": -36
+            },
+            {
+                "frame": true,
+                "scaleX": 0.9999281143310416,
+                "scaleY": 2.7529070896562224,
+                "y": -47,
+                "rotation": -32
+            },
+            {
+                "frame": true,
+                "x": -60,
+                "scaleX": 0.9999090923817772,
+                "y": -55,
+                "rotation": -28,
+                "scaleY": 2.912236820853501
+            },
+            {
+                "frame": true,
+                "x": -58,
+                "scaleX": 0.9999263814793228,
+                "y": -64,
+                "rotation": -24,
+                "scaleY": 3.0716569307602724
+            },
+            {
+                "frame": true,
+                "x": -55,
+                "scaleX": 0.9999590568244642,
+                "y": -72,
+                "rotation": -20,
+                "scaleY": 3.2310558442053354
+            },
+            {
+                "frame": true,
+                "x": -51,
+                "scaleX": 0.9999588799823342,
+                "y": -79,
+                "rotation": -16,
+                "scaleY": 3.390407682638093
+            },
+            {
+                "frame": true,
+                "x": -46,
+                "scaleX": 0.9999570632448826,
+                "y": -87,
+                "rotation": -12,
+                "scaleY": 3.5498090779409845
+            },
+            {
+                "frame": true,
+                "x": -40,
+                "scaleX": 0.9999345613885717,
+                "y": -94,
+                "rotation": -8,
+                "scaleY": 3.7090881440736077
+            },
+            {
+                "frame": true,
+                "x": -34,
+                "scaleX": 0.9999667421506488,
+                "y": -101,
+                "rotation": -4,
+                "scaleY": 3.8685128376280655
+            },
+            {
+                "frame": true,
+                "x": -26,
+                "scaleX": 1,
+                "y": -107,
+                "rotation": 0,
+                "scaleY": 4.0280303955078125
+            },
+            {
+                "scaleY": 3.8763275146484375,
+                "x": -32,
+                "scaleX": 1.13458251953125,
+                "y": -106,
+                "frame": true
+            },
+            {
+                "scaleY": 3.724884033203125,
+                "x": -37,
+                "scaleX": 1.2691650390625,
+                "frame": true
+            },
+            {
+                "scaleY": 3.5735015869140625,
+                "x": -43,
+                "scaleX": 1.4037322998046875,
+                "y": -105,
+                "frame": true
+            },
+            {
+                "scaleY": 3.42205810546875,
+                "x": -48,
+                "scaleX": 1.5383148193359375,
+                "y": -104,
+                "frame": true
+            },
+            {
+                "scaleY": 3.2706756591796875,
+                "x": -54,
+                "scaleX": 1.6728973388671875,
+                "frame": true
+            },
+            {
+                "scaleY": 3.119232177734375,
+                "x": -59,
+                "scaleX": 1.8074798583984375,
+                "y": -103,
+                "frame": true
+            },
+            {
+                "scaleY": 2.9678497314453125,
+                "x": -65,
+                "scaleX": 1.942047119140625,
+                "frame": true
+            },
+            {
+                "scaleY": 2.81640625,
+                "x": -70,
+                "scaleX": 2.076629638671875,
+                "y": -102,
+                "frame": true
+            },
+            {
+                "scaleY": 2.6652069091796875,
+                "x": -75,
+                "scaleX": 2.211212158203125,
+                "y": -101,
+                "frame": true
+            },
+            {
+                "scaleY": 2.5137481689453125,
+                "x": -78,
+                "scaleX": 2.34576416015625,
+                "y": -94,
+                "frame": true
+            },
+            {
+                "scaleY": 2.3623504638671875,
+                "x": -80,
+                "scaleX": 2.4803466796875,
+                "y": -88,
+                "frame": true
+            },
+            {
+                "scaleY": 2.2110137939453125,
+                "x": -82,
+                "scaleX": 2.6149139404296875,
+                "y": -81,
+                "frame": true
+            },
+            {
+                "scaleY": 2.0596160888671875,
+                "x": -84,
+                "scaleX": 2.7494964599609375,
+                "y": -74,
+                "frame": true
+            },
+            {
+                "scaleY": 1.9082489013671875,
+                "x": -86,
+                "scaleX": 2.88409423828125,
+                "y": -67,
+                "frame": true
+            },
+            {
+                "scaleY": 1.7568359375,
+                "x": -88,
+                "scaleX": 3.018646240234375,
+                "y": -60,
+                "frame": true
+            },
+            {
+                "scaleY": 1.6054840087890625,
+                "x": -90,
+                "scaleX": 3.1532440185546875,
+                "y": -53,
+                "frame": true
+            },
+            {
+                "scaleY": 1.454071044921875,
+                "x": -93,
+                "scaleX": 3.2878265380859375,
+                "y": -47,
+                "frame": true
+            },
+            {
+                "scaleY": 1.3027496337890625,
+                "x": -95,
+                "scaleX": 3.4223785400390625,
+                "y": -40,
+                "frame": true
+            },
+            {
+                "scaleY": 1.151336669921875,
+                "x": -97,
+                "scaleX": 3.556976318359375,
+                "y": -33,
+                "frame": true
+            },
+            {
+                "scaleY": 1,
+                "x": -98,
+                "scaleX": 3.69158935546875,
+                "y": -26,
+                "frame": true
+            },
+            {
+                "frame": true,
+                "x": -93,
+                "scaleX": 3.5566957661681666,
+                "y": -32,
+                "rotation": 3,
+                "scaleY": 0.9999898882304374
+            },
+            {
+                "frame": true,
+                "x": -87,
+                "scaleX": 3.4221945564705236,
+                "y": -38,
+                "rotation": 7,
+                "scaleY": 0.9999972463081861
+            },
+            {
+                "frame": true,
+                "x": -81,
+                "scaleX": 3.2875226048506683,
+                "y": -42,
+                "rotation": 11,
+                "scaleY": 0.9999978812388981
+            },
+            {
+                "frame": true,
+                "x": -74,
+                "scaleX": 3.1529898999056964,
+                "y": -47,
+                "rotation": 14,
+                "scaleY": 0.9999928215726606
+            },
+            {
+                "frame": true,
+                "x": -68,
+                "scaleX": 3.0183776936941564,
+                "y": -50,
+                "rotation": 18,
+                "scaleY": 0.999991380688841
+            },
+            {
+                "frame": true,
+                "x": -61,
+                "scaleX": 2.8837893507337573,
+                "y": -53,
+                "rotation": 22,
+                "scaleY": 0.9999896231500341
+            },
+            {
+                "frame": true,
+                "x": -54,
+                "scaleX": 2.7491767905742845,
+                "y": -55,
+                "rotation": 25,
+                "scaleY": 0.9999882444281205
+            },
+            {
+                "frame": true,
+                "x": -47,
+                "scaleX": 2.6146351813007866,
+                "y": -57,
+                "rotation": 29,
+                "scaleY": 0.9999924897865565
+            },
+            {
+                "frame": true,
+                "x": -41,
+                "scaleX": 2.4800965410037876,
+                "y": -58,
+                "rotation": 33,
+                "scaleY": 0.9999977924138155
+            },
+            {
+                "frame": true,
+                "x": -34,
+                "scaleX": 2.345640725253552,
+                "scaleY": 0.9999985159363761,
+                "rotation": 36
+            },
+            {
+                "frame": true,
+                "scaleX": 2.210954938660129,
+                "scaleY": 0.9999722058049011,
+                "y": -54,
+                "rotation": 33
+            },
+            {
+                "frame": true,
+                "x": -35,
+                "scaleX": 2.0763879791488495,
+                "y": -50,
+                "rotation": 29,
+                "scaleY": 0.9999658911259809
+            },
+            {
+                "frame": true,
+                "scaleX": 1.9418022686816832,
+                "scaleY": 0.9999607427023437,
+                "y": -46,
+                "rotation": 25
+            },
+            {
+                "frame": true,
+                "x": -34,
+                "scaleX": 1.8072724666045665,
+                "y": -42,
+                "rotation": 22,
+                "scaleY": 0.9999613312047253
+            },
+            {
+                "frame": true,
+                "x": -33,
+                "scaleX": 1.6726951165485462,
+                "y": -39,
+                "rotation": 18,
+                "scaleY": 0.9999768975781838
+            },
+            {
+                "frame": true,
+                "x": -32,
+                "scaleX": 1.5381228616611744,
+                "y": -36,
+                "rotation": 14,
+                "scaleY": 0.9999594336762194
+            },
+            {
+                "frame": true,
+                "x": -31,
+                "scaleX": 1.4035892376558592,
+                "y": -33,
+                "rotation": 11,
+                "scaleY": 0.9999708390501012
+            },
+            {
+                "frame": true,
+                "x": -30,
+                "scaleX": 1.269016102113447,
+                "y": -30,
+                "rotation": 7,
+                "scaleY": 0.9999669787144224
+            },
+            {
+                "frame": true,
+                "x": -28,
+                "scaleX": 1.1344665935183933,
+                "y": -28,
+                "rotation": 3,
+                "scaleY": 0.9999594332105393
+            },
+            {
+                "frame": true,
+                "x": -26,
+                "scaleX": 1,
+                "y": -26,
+                "rotation": 0,
+                "scaleY": 1
+            },
+            {
+                "y": -27,
+                "frame": true
+            },
+            {
+                "x": -27,
+                "frame": true
+            },
+            {
+                "frame": true
+            },
+            {
+                "frame": true
+            },
+            {
+                "y": -28,
+                "frame": true
+            },
+            {
+                "frame": true
+            },
+            {
+                "frame": true
+            },
+            {
+                "frame": true
+            },
+            {
+                "x": -28,
+                "y": -29,
+                "frame": true
+            },
+            {
+                "frame": true
+            },
+            {
+                "frame": true
+            },
+            {
+                "x": -27,
+                "y": -28,
+                "frame": true
+            },
+            {
+                "frame": true
+            },
+            {
+                "frame": true
+            },
+            {
+                "frame": true
+            },
+            {
+                "y": -27,
+                "frame": true
+            },
+            {
+                "frame": true
+            },
+            {
+                "frame": true
+            },
+            {
+                "x": -26,
+                "frame": true
+            }
+        ],
+        "ball2":
+        [
+            {
+                "frame": true,
+                "x": 513,
+                "scaleX": 1,
+                "alpha": 1,
+                "y": 26,
+                "scaleY": 1,
+                "rotation": 0
+            },
+            {
+                "scaleY": 0.9652862548828125,
+                "x": 486,
+                "scaleX": 0.9652862548828125,
+                "y": 38,
+                "frame": true
+            },
+            {
+                "scaleY": 0.930572509765625,
+                "x": 459,
+                "scaleX": 0.930572509765625,
+                "y": 50,
+                "frame": true
+            },
+            {
+                "scaleY": 0.8958587646484375,
+                "x": 432,
+                "scaleX": 0.8958587646484375,
+                "y": 62,
+                "frame": true
+            },
+            {
+                "scaleY": 0.86114501953125,
+                "x": 405,
+                "scaleX": 0.86114501953125,
+                "y": 74,
+                "frame": true
+            },
+            {
+                "scaleY": 0.8264312744140625,
+                "x": 378,
+                "scaleX": 0.8264312744140625,
+                "y": 86,
+                "frame": true
+            },
+            {
+                "scaleY": 0.791717529296875,
+                "x": 351,
+                "scaleX": 0.791717529296875,
+                "y": 98,
+                "frame": true
+            },
+            {
+                "scaleY": 0.75701904296875,
+                "x": 324,
+                "scaleX": 0.75701904296875,
+                "y": 110,
+                "frame": true
+            },
+            {
+                "scaleY": 0.7223052978515625,
+                "x": 297,
+                "scaleX": 0.7223052978515625,
+                "y": 122,
+                "frame": true
+            },
+            {
+                "scaleY": 0.687591552734375,
+                "x": 270,
+                "scaleX": 0.687591552734375,
+                "y": 134,
+                "frame": true
+            },
+            {
+                "scaleY": 0.6528778076171875,
+                "x": 243,
+                "scaleX": 0.6528778076171875,
+                "y": 146,
+                "frame": true
+            },
+            {
+                "scaleY": 0.6181640625,
+                "x": 216,
+                "scaleX": 0.6181640625,
+                "y": 158,
+                "frame": true
+            },
+            {
+                "scaleY": 0.5834503173828125,
+                "x": 188,
+                "scaleX": 0.5834503173828125,
+                "y": 169,
+                "frame": true
+            },
+            {
+                "scaleY": 0.548736572265625,
+                "x": 161,
+                "scaleX": 0.548736572265625,
+                "y": 181,
+                "frame": true
+            },
+            {
+                "scaleY": 0.5140228271484375,
+                "x": 134,
+                "scaleX": 0.5140228271484375,
+                "y": 193,
+                "frame": true
+            },
+            {
+                "scaleY": 0.5464019775390625,
+                "x": 160,
+                "scaleX": 0.5464019775390625,
+                "y": 182,
+                "frame": true
+            },
+            {
+                "scaleY": 0.57879638671875,
+                "x": 185,
+                "scaleX": 0.57879638671875,
+                "y": 171,
+                "frame": true
+            },
+            {
+                "scaleY": 0.6112060546875,
+                "x": 210,
+                "scaleX": 0.6112060546875,
+                "y": 160,
+                "frame": true
+            },
+            {
+                "scaleY": 0.6436004638671875,
+                "x": 235,
+                "scaleX": 0.6436004638671875,
+                "y": 149,
+                "frame": true
+            },
+            {
+                "scaleY": 0.675994873046875,
+                "x": 261,
+                "scaleX": 0.675994873046875,
+                "y": 138,
+                "frame": true
+            },
+            {
+                "scaleY": 0.7083892822265625,
+                "x": 286,
+                "scaleX": 0.7083892822265625,
+                "y": 126,
+                "frame": true
+            },
+            {
+                "scaleY": 0.7407989501953125,
+                "x": 311,
+                "scaleX": 0.7407989501953125,
+                "y": 115,
+                "frame": true
+            },
+            {
+                "scaleY": 0.773193359375,
+                "x": 336,
+                "scaleX": 0.773193359375,
+                "y": 104,
+                "frame": true
+            },
+            {
+                "scaleY": 0.80560302734375,
+                "x": 362,
+                "scaleX": 0.80560302734375,
+                "y": 93,
+                "frame": true
+            },
+            {
+                "scaleY": 0.8379974365234375,
+                "x": 387,
+                "scaleX": 0.8379974365234375,
+                "y": 82,
+                "frame": true
+            },
+            {
+                "scaleY": 0.870391845703125,
+                "x": 412,
+                "scaleX": 0.870391845703125,
+                "y": 71,
+                "frame": true
+            },
+            {
+                "scaleY": 0.9027862548828125,
+                "x": 437,
+                "scaleX": 0.9027862548828125,
+                "y": 60,
+                "frame": true
+            },
+            {
+                "scaleY": 0.9351959228515625,
+                "x": 463,
+                "scaleX": 0.9351959228515625,
+                "y": 48,
+                "frame": true
+            },
+            {
+                "scaleY": 0.96759033203125,
+                "x": 488,
+                "scaleX": 0.96759033203125,
+                "y": 37,
+                "frame": true
+            }
+        ],
+        "ball4":
+        [
+            {
+                "frame": true,
+                "x": 513,
+                "scaleX": 1.7102562547496711,
+                "alpha": 1,
+                "y": 363,
+                "scaleY": 0.4746585752255964,
+                "rotation": -29
+            },
+            {
+                "frame": true,
+                "x": 479,
+                "scaleX": 1.6274179136599,
+                "y": 360,
+                "rotation": -27,
+                "scaleY": 0.48010414718797007
+            },
+            {
+                "frame": true,
+                "x": 445,
+                "scaleX": 1.5446661688261767,
+                "y": 357,
+                "rotation": -25,
+                "scaleY": 0.48559030229682604
+            },
+            {
+                "frame": true,
+                "x": 412,
+                "scaleX": 1.4618748193422348,
+                "y": 353,
+                "rotation": -23,
+                "scaleY": 0.49107915919430245
+            },
+            {
+                "frame": true,
+                "x": 378,
+                "scaleX": 1.379095403763942,
+                "y": 350,
+                "rotation": -21,
+                "scaleY": 0.49655911112340745
+            },
+            {
+                "frame": true,
+                "x": 344,
+                "scaleX": 1.2962829383072043,
+                "y": 347,
+                "rotation": -19,
+                "scaleY": 0.5020361235199794
+            },
+            {
+                "frame": true,
+                "x": 310,
+                "scaleX": 1.213536336057662,
+                "y": 343,
+                "rotation": -17,
+                "scaleY": 0.5075142741229224
+            },
+            {
+                "frame": true,
+                "x": 276,
+                "scaleX": 1.1307504442726735,
+                "y": 340,
+                "rotation": -15,
+                "scaleY": 0.5130069843450537
+            },
+            {
+                "frame": true,
+                "x": 242,
+                "scaleX": 1.0479771897839372,
+                "y": 336,
+                "rotation": -12,
+                "scaleY": 0.5184920144237672
+            },
+            {
+                "frame": true,
+                "x": 208,
+                "scaleX": 0.965206520250044,
+                "y": 333,
+                "rotation": -10,
+                "scaleY": 0.523951262532564
+            },
+            {
+                "frame": true,
+                "x": 174,
+                "scaleX": 0.8824571949713241,
+                "y": 330,
+                "rotation": -8,
+                "scaleY": 0.529441577277227
+            },
+            {
+                "frame": true,
+                "x": 140,
+                "scaleX": 0.7996437473542983,
+                "y": 326,
+                "rotation": -6,
+                "scaleY": 0.5349185045261341
+            },
+            {
+                "frame": true,
+                "x": 106,
+                "scaleX": 0.716878894906378,
+                "y": 323,
+                "rotation": -4,
+                "scaleY": 0.5404050039441937
+            },
+            {
+                "frame": true,
+                "x": 72,
+                "scaleX": 0.6341263166908028,
+                "y": 320,
+                "rotation": -2,
+                "scaleY": 0.5458983082677317
+            },
+            {
+                "frame": true,
+                "x": 38,
+                "scaleX": 0.5513916015625,
+                "y": 316,
+                "rotation": 0,
+                "scaleY": 0.5513916015625
+            },
+            {
+                "frame": true,
+                "x": 70,
+                "scaleX": 0.6286173967552967,
+                "y": 319,
+                "rotation": -1,
+                "scaleY": 0.5462609803486854
+            },
+            {
+                "frame": true,
+                "x": 102,
+                "scaleX": 0.7058810453197001,
+                "y": 323,
+                "rotation": -3,
+                "scaleY": 0.5411274898469403
+            },
+            {
+                "frame": true,
+                "x": 133,
+                "scaleX": 0.7831431852565974,
+                "y": 326,
+                "rotation": -5,
+                "scaleY": 0.5360159444762833
+            },
+            {
+                "frame": true,
+                "x": 165,
+                "scaleX": 0.8603903288664516,
+                "y": 329,
+                "rotation": -7,
+                "scaleY": 0.5309055071309449
+            },
+            {
+                "frame": true,
+                "x": 197,
+                "scaleX": 0.9376566043330087,
+                "y": 332,
+                "rotation": -9,
+                "scaleY": 0.5257932762376127
+            },
+            {
+                "frame": true,
+                "x": 228,
+                "scaleX": 1.0148972720408593,
+                "y": 335,
+                "rotation": -11,
+                "scaleY": 0.5206657428622757
+            },
+            {
+                "frame": true,
+                "x": 260,
+                "scaleX": 1.0921581102340803,
+                "y": 338,
+                "rotation": -13,
+                "scaleY": 0.515551160813929
+            },
+            {
+                "frame": true,
+                "x": 292,
+                "scaleX": 1.1694244123588218,
+                "y": 341,
+                "rotation": -15,
+                "scaleY": 0.5104430112904664
+            },
+            {
+                "frame": true,
+                "x": 323,
+                "scaleX": 1.2466787505441401,
+                "y": 345,
+                "rotation": -18,
+                "scaleY": 0.5053344423023278
+            },
+            {
+                "frame": true,
+                "x": 355,
+                "scaleX": 1.3239350312113765,
+                "y": 348,
+                "rotation": -20,
+                "scaleY": 0.5002025916986063
+            },
+            {
+                "frame": true,
+                "x": 387,
+                "scaleX": 1.4012124594225819,
+                "y": 351,
+                "rotation": -21,
+                "scaleY": 0.49510071189073174
+            },
+            {
+                "frame": true,
+                "x": 418,
+                "scaleX": 1.4784757636793082,
+                "y": 354,
+                "rotation": -24,
+                "scaleY": 0.4899802159405178
+            },
+            {
+                "frame": true,
+                "x": 450,
+                "scaleX": 1.5557084913848,
+                "y": 357,
+                "rotation": -25,
+                "scaleY": 0.4848646567767897
+            },
+            {
+                "frame": true,
+                "x": 482,
+                "scaleX": 1.632974521413166,
+                "y": 360,
+                "rotation": -27,
+                "scaleY": 0.4797430261236569
+            }
+        ],
+        "sq":
+        [
+            {
+                "frame": true,
+                "x": -6,
+                "scaleX": 1,
+                "alpha": 1,
+                "y": -95,
+                "scaleY": 1,
+                "rotation": 0
+            },
+            {
+                "frame": true,
+                "x": 2,
+                "scaleX": 0.9999963875096234,
+                "y": -94,
+                "rotation": 4,
+                "scaleY": 0.9999963875096234
+            },
+            {
+                "frame": true,
+                "x": 10,
+                "scaleX": 0.9999976992813481,
+                "scaleY": 0.9999976992813481,
+                "rotation": 9
+            },
+            {
+                "frame": true,
+                "x": 19,
+                "scaleX": 0.9999903779945288,
+                "y": -92,
+                "rotation": 14,
+                "scaleY": 0.9999903779945288
+            },
+            {
+                "frame": true,
+                "x": 27,
+                "scaleX": 0.9999963643428903,
+                "y": -90,
+                "rotation": 18,
+                "scaleY": 0.9999963643428903
+            },
+            {
+                "frame": true,
+                "x": 35,
+                "scaleX": 0.9999951786478237,
+                "y": -88,
+                "rotation": 23,
+                "scaleY": 0.9999951786478237
+            },
+            {
+                "frame": true,
+                "x": 42,
+                "scaleX": 0.9999862703483532,
+                "y": -84,
+                "rotation": 28,
+                "scaleY": 0.9999862703483532
+            },
+            {
+                "frame": true,
+                "x": 50,
+                "scaleX": 0.9999947874903801,
+                "y": -80,
+                "rotation": 33,
+                "scaleY": 0.9999947874903801
+            },
+            {
+                "frame": true,
+                "x": 57,
+                "scaleX": 0.9999888586423903,
+                "y": -76,
+                "rotation": 37,
+                "scaleY": 0.9999888586423903
+            },
+            {
+                "frame": true,
+                "x": 63,
+                "scaleX": 0.9999817907316477,
+                "y": -71,
+                "rotation": 42,
+                "scaleY": 0.9999817907316477
+            },
+            {
+                "rotation": 47,
+                "x": 69,
+                "y": -65,
+                "frame": true
+            },
+            {
+                "frame": true,
+                "x": 75,
+                "scaleX": 0.9999888586423903,
+                "y": -59,
+                "rotation": 52,
+                "scaleY": 0.9999888586423903
+            },
+            {
+                "frame": true,
+                "x": 79,
+                "scaleX": 0.9999947874903801,
+                "y": -53,
+                "rotation": 56,
+                "scaleY": 0.9999947874903801
+            },
+            {
+                "frame": true,
+                "x": 84,
+                "scaleX": 0.9999862703483532,
+                "y": -46,
+                "rotation": 61,
+                "scaleY": 0.9999862703483532
+            },
+            {
+                "frame": true,
+                "x": 88,
+                "scaleX": 0.9999951786478237,
+                "y": -39,
+                "rotation": 66,
+                "scaleY": 0.9999951786478237
+            },
+            {
+                "frame": true,
+                "x": 91,
+                "scaleX": 0.9999963643428903,
+                "y": -31,
+                "rotation": 71,
+                "scaleY": 0.9999963643428903
+            },
+            {
+                "frame": true,
+                "x": 93,
+                "scaleX": 0.9999903779945288,
+                "y": -23,
+                "rotation": 75,
+                "scaleY": 0.9999903779945288
+            },
+            {
+                "frame": true,
+                "x": 95,
+                "scaleX": 0.9999976992813481,
+                "y": -16,
+                "rotation": 80,
+                "scaleY": 0.9999976992813481
+            },
+            {
+                "frame": true,
+                "x": 96,
+                "scaleX": 0.9999963875096234,
+                "y": -8,
+                "rotation": 85,
+                "scaleY": 0.9999963875096234
+            },
+            {
+                "frame": true,
+                "x": 97,
+                "scaleX": 1,
+                "y": 0,
+                "rotation": 90,
+                "scaleY": 1
+            },
+            {
+                "frame": true,
+                "scaleX": 0.9999853032725297,
+                "scaleY": 0.9999853032725297,
+                "y": 7,
+                "rotation": 94
+            },
+            {
+                "frame": true,
+                "x": 96,
+                "scaleX": 0.999997630828979,
+                "y": 15,
+                "rotation": 99,
+                "scaleY": 0.999997630828979
+            },
+            {
+                "frame": true,
+                "x": 95,
+                "scaleX": 0.9999926812911809,
+                "y": 22,
+                "rotation": 103,
+                "scaleY": 0.9999926812911809
+            },
+            {
+                "frame": true,
+                "x": 94,
+                "scaleX": 0.9999901382930461,
+                "y": 30,
+                "rotation": 107,
+                "scaleY": 0.9999901382930461
+            },
+            {
+                "frame": true,
+                "x": 91,
+                "scaleX": 0.9999916359898097,
+                "y": 37,
+                "rotation": 112,
+                "scaleY": 0.9999916359898097
+            },
+            {
+                "frame": true,
+                "x": 89,
+                "scaleX": 0.9999882858724615,
+                "y": 44,
+                "rotation": 117,
+                "scaleY": 0.9999882858724615
+            },
+            {
+                "frame": true,
+                "x": 85,
+                "scaleX": 0.9999961160280751,
+                "y": 50,
+                "rotation": 121,
+                "scaleY": 0.9999961160280751
+            },
+            {
+                "frame": true,
+                "x": 81,
+                "scaleX": 0.9999934229783495,
+                "y": 57,
+                "rotation": 125,
+                "scaleY": 0.9999934229783495
+            },
+            {
+                "frame": true,
+                "x": 77,
+                "scaleX": 0.9999882397714529,
+                "y": 63,
+                "rotation": 130,
+                "scaleY": 0.9999882397714529
+            },
+            {
+                "frame": true,
+                "x": 72,
+                "scaleX": 0.9999794995173527,
+                "y": 68,
+                "rotation": 135,
+                "scaleY": 0.9999794995173527
+            },
+            {
+                "frame": true,
+                "x": 67,
+                "scaleX": 0.9999882397714529,
+                "y": 73,
+                "rotation": 139,
+                "scaleY": 0.9999882397714529
+            },
+            {
+                "frame": true,
+                "x": 61,
+                "scaleX": 0.9999934229783495,
+                "y": 78,
+                "rotation": 144,
+                "scaleY": 0.9999934229783495
+            },
+            {
+                "frame": true,
+                "x": 55,
+                "scaleX": 0.9999961160280751,
+                "y": 82,
+                "rotation": 148,
+                "scaleY": 0.9999961160280751
+            },
+            {
+                "frame": true,
+                "x": 48,
+                "scaleX": 0.9999882858724615,
+                "y": 85,
+                "rotation": 152,
+                "scaleY": 0.9999882858724615
+            },
+            {
+                "frame": true,
+                "x": 42,
+                "scaleX": 0.9999916359898097,
+                "y": 88,
+                "rotation": 157,
+                "scaleY": 0.9999916359898097
+            },
+            {
+                "frame": true,
+                "x": 35,
+                "scaleX": 0.9999901382930461,
+                "y": 91,
+                "rotation": 162,
+                "scaleY": 0.9999901382930461
+            },
+            {
+                "frame": true,
+                "x": 28,
+                "scaleX": 0.9999926812911809,
+                "y": 93,
+                "rotation": 166,
+                "scaleY": 0.9999926812911809
+            },
+            {
+                "frame": true,
+                "x": 20,
+                "scaleX": 0.999997630828979,
+                "y": 94,
+                "rotation": 170,
+                "scaleY": 0.999997630828979
+            },
+            {
+                "frame": true,
+                "x": 13,
+                "scaleX": 0.9999853032725297,
+                "scaleY": 0.9999853032725297,
+                "rotation": 175
+            },
+            {
+                "frame": true,
+                "x": 6,
+                "scaleX": 1,
+                "y": 95,
+                "rotation": 180,
+                "scaleY": 1
+            },
+            {
+                "frame": true,
+                "x": -1,
+                "scaleX": 0.9999853032725297,
+                "scaleY": 0.9999853032725297,
+                "rotation": -175
+            },
+            {
+                "frame": true,
+                "x": -9,
+                "scaleX": 0.999997630828979,
+                "scaleY": 0.999997630828979,
+                "rotation": -170
+            },
+            {
+                "frame": true,
+                "x": -17,
+                "scaleX": 0.9999926812911809,
+                "y": 94,
+                "rotation": -166,
+                "scaleY": 0.9999926812911809
+            },
+            {
+                "frame": true,
+                "x": -25,
+                "scaleX": 0.9999901382930461,
+                "y": 92,
+                "rotation": -162,
+                "scaleY": 0.9999901382930461
+            },
+            {
+                "frame": true,
+                "x": -32,
+                "scaleX": 0.9999916359898097,
+                "y": 90,
+                "rotation": -157,
+                "scaleY": 0.9999916359898097
+            },
+            {
+                "frame": true,
+                "x": -39,
+                "scaleX": 0.9999882858724615,
+                "y": 87,
+                "rotation": -152,
+                "scaleY": 0.9999882858724615
+            },
+            {
+                "frame": true,
+                "x": -46,
+                "scaleX": 0.9999961160280751,
+                "y": 84,
+                "rotation": -148,
+                "scaleY": 0.9999961160280751
+            },
+            {
+                "frame": true,
+                "x": -53,
+                "scaleX": 0.9999934229783495,
+                "y": 80,
+                "rotation": -144,
+                "scaleY": 0.9999934229783495
+            },
+            {
+                "frame": true,
+                "x": -59,
+                "scaleX": 0.9999882397714529,
+                "y": 76,
+                "rotation": -139,
+                "scaleY": 0.9999882397714529
+            },
+            {
+                "frame": true,
+                "x": -65,
+                "scaleX": 0.9999794995173527,
+                "y": 71,
+                "rotation": -135,
+                "scaleY": 0.9999794995173527
+            },
+            {
+                "frame": true,
+                "x": -70,
+                "scaleX": 0.9999882397714529,
+                "y": 66,
+                "rotation": -130,
+                "scaleY": 0.9999882397714529
+            },
+            {
+                "frame": true,
+                "x": -75,
+                "scaleX": 0.9999934229783495,
+                "y": 60,
+                "rotation": -125,
+                "scaleY": 0.9999934229783495
+            },
+            {
+                "frame": true,
+                "x": -80,
+                "scaleX": 0.9999961160280751,
+                "y": 54,
+                "rotation": -121,
+                "scaleY": 0.9999961160280751
+            },
+            {
+                "frame": true,
+                "x": -84,
+                "scaleX": 0.9999882858724615,
+                "y": 48,
+                "rotation": -117,
+                "scaleY": 0.9999882858724615
+            },
+            {
+                "frame": true,
+                "x": -87,
+                "scaleX": 0.9999916359898097,
+                "y": 41,
+                "rotation": -112,
+                "scaleY": 0.9999916359898097
+            },
+            {
+                "frame": true,
+                "x": -90,
+                "scaleX": 0.9999901382930461,
+                "y": 34,
+                "rotation": -107,
+                "scaleY": 0.9999901382930461
+            },
+            {
+                "frame": true,
+                "x": -92,
+                "scaleX": 0.9999926812911809,
+                "y": 27,
+                "rotation": -103,
+                "scaleY": 0.9999926812911809
+            },
+            {
+                "frame": true,
+                "x": -93,
+                "scaleX": 0.999997630828979,
+                "y": 20,
+                "rotation": -99,
+                "scaleY": 0.999997630828979
+            },
+            {
+                "frame": true,
+                "x": -94,
+                "scaleX": 0.9999853032725297,
+                "y": 13,
+                "rotation": -94,
+                "scaleY": 0.9999853032725297
+            },
+            {
+                "frame": true,
+                "x": -95,
+                "scaleX": 1,
+                "y": 6,
+                "rotation": -90,
+                "scaleY": 1
+            },
+            {
+                "frame": true,
+                "scaleX": 0.9999853032725297,
+                "scaleY": 0.9999853032725297,
+                "y": -1,
+                "rotation": -85
+            },
+            {
+                "frame": true,
+                "scaleX": 0.999997630828979,
+                "scaleY": 0.999997630828979,
+                "y": -9,
+                "rotation": -80
+            },
+            {
+                "frame": true,
+                "x": -94,
+                "scaleX": 0.9999926812911809,
+                "y": -17,
+                "rotation": -76,
+                "scaleY": 0.9999926812911809
+            },
+            {
+                "frame": true,
+                "x": -92,
+                "scaleX": 0.9999901382930461,
+                "y": -25,
+                "rotation": -72,
+                "scaleY": 0.9999901382930461
+            },
+            {
+                "frame": true,
+                "x": -90,
+                "scaleX": 0.9999916359898097,
+                "y": -32,
+                "rotation": -67,
+                "scaleY": 0.9999916359898097
+            },
+            {
+                "frame": true,
+                "x": -88,
+                "scaleX": 0.9999882858724615,
+                "y": -39,
+                "rotation": -62,
+                "scaleY": 0.9999882858724615
+            },
+            {
+                "frame": true,
+                "x": -84,
+                "scaleX": 0.9999961160280751,
+                "y": -46,
+                "rotation": -58,
+                "scaleY": 0.9999961160280751
+            },
+            {
+                "frame": true,
+                "x": -81,
+                "scaleX": 0.9999934229783495,
+                "y": -53,
+                "rotation": -54,
+                "scaleY": 0.9999934229783495
+            },
+            {
+                "frame": true,
+                "x": -76,
+                "scaleX": 0.9999882397714529,
+                "y": -59,
+                "rotation": -49,
+                "scaleY": 0.9999882397714529
+            },
+            {
+                "frame": true,
+                "x": -72,
+                "scaleX": 0.9999794995173527,
+                "y": -65,
+                "rotation": -45,
+                "scaleY": 0.9999794995173527
+            },
+            {
+                "frame": true,
+                "x": -66,
+                "scaleX": 0.9999882397714529,
+                "y": -70,
+                "rotation": -40,
+                "scaleY": 0.9999882397714529
+            },
+            {
+                "frame": true,
+                "x": -61,
+                "scaleX": 0.9999934229783495,
+                "y": -75,
+                "rotation": -35,
+                "scaleY": 0.9999934229783495
+            },
+            {
+                "frame": true,
+                "x": -55,
+                "scaleX": 0.9999961160280751,
+                "y": -79,
+                "rotation": -31,
+                "scaleY": 0.9999961160280751
+            },
+            {
+                "frame": true,
+                "x": -49,
+                "scaleX": 0.9999882858724615,
+                "y": -83,
+                "rotation": -27,
+                "scaleY": 0.9999882858724615
+            },
+            {
+                "frame": true,
+                "x": -42,
+                "scaleX": 0.9999916359898097,
+                "y": -86,
+                "rotation": -22,
+                "scaleY": 0.9999916359898097
+            },
+            {
+                "frame": true,
+                "x": -35,
+                "scaleX": 0.9999901382930461,
+                "y": -89,
+                "rotation": -17,
+                "scaleY": 0.9999901382930461
+            },
+            {
+                "frame": true,
+                "x": -28,
+                "scaleX": 0.9999926812911809,
+                "y": -91,
+                "rotation": -13,
+                "scaleY": 0.9999926812911809
+            },
+            {
+                "frame": true,
+                "x": -21,
+                "scaleX": 0.999997630828979,
+                "y": -92,
+                "rotation": -9,
+                "scaleY": 0.999997630828979
+            },
+            {
+                "frame": true,
+                "x": -14,
+                "scaleX": 0.9999853032725297,
+                "y": -93,
+                "rotation": -4,
+                "scaleY": 0.9999853032725297
+            }
+        ],
+        "ball1":
+        [
+            {
+                "frame": true,
+                "x": 26,
+                "scaleX": 0.4766387939453125,
+                "alpha": 1,
+                "y": 26,
+                "scaleY": 1.8224334716796875,
+                "rotation": 0
+            },
+            {
+                "frame": true,
+                "x": 58,
+                "scaleX": 0.49264357478578874,
+                "y": 33,
+                "rotation": -12,
+                "scaleY": 1.7422453869757621
+            },
+            {
+                "frame": true,
+                "x": 89,
+                "scaleX": 0.5086519203855138,
+                "y": 40,
+                "rotation": -24,
+                "scaleY": 1.6621424460034695
+            },
+            {
+                "frame": true,
+                "x": 121,
+                "scaleX": 0.5246740882850937,
+                "y": 46,
+                "rotation": -37,
+                "scaleY": 1.5820548812255109
+            },
+            {
+                "frame": true,
+                "x": 152,
+                "scaleX": 0.5406921414622662,
+                "y": 53,
+                "rotation": -49,
+                "scaleY": 1.5019029430965076
+            },
+            {
+                "frame": true,
+                "x": 184,
+                "scaleX": 0.556732367810526,
+                "y": 60,
+                "rotation": -62,
+                "scaleY": 1.4218209783344662
+            },
+            {
+                "frame": true,
+                "x": 216,
+                "scaleX": 0.57275512842339,
+                "y": 66,
+                "rotation": -74,
+                "scaleY": 1.3417081723746365
+            },
+            {
+                "frame": true,
+                "x": 247,
+                "scaleX": 0.5887624483762864,
+                "y": 73,
+                "rotation": -87,
+                "scaleY": 1.2616196076183364
+            },
+            {
+                "frame": true,
+                "x": 279,
+                "scaleX": 0.6047700253470565,
+                "y": 79,
+                "rotation": -99,
+                "scaleY": 1.1815018795069132
+            },
+            {
+                "frame": true,
+                "x": 310,
+                "scaleX": 0.6207968674074744,
+                "y": 86,
+                "rotation": -112,
+                "scaleY": 1.1013812871860171
+            },
+            {
+                "frame": true,
+                "x": 342,
+                "scaleX": 0.6368109800452416,
+                "y": 93,
+                "rotation": -124,
+                "scaleY": 1.0212939864040116
+            },
+            {
+                "frame": true,
+                "x": 373,
+                "scaleX": 0.6528294976241622,
+                "y": 99,
+                "rotation": -137,
+                "scaleY": 0.9411519298670907
+            },
+            {
+                "frame": true,
+                "x": 405,
+                "scaleX": 0.6688481462175802,
+                "y": 106,
+                "rotation": -149,
+                "scaleY": 0.8610603636445654
+            },
+            {
+                "frame": true,
+                "x": 437,
+                "scaleX": 0.6848777158690927,
+                "y": 113,
+                "rotation": -162,
+                "scaleY": 0.7809665168590649
+            },
+            {
+                "frame": true,
+                "x": 468,
+                "scaleX": 0.7009149206087089,
+                "y": 119,
+                "rotation": -174,
+                "scaleY": 0.7009149206087089
+            },
+            {
+                "frame": true,
+                "x": 439,
+                "scaleX": 0.6859318402576591,
+                "y": 113,
+                "rotation": -162,
+                "scaleY": 0.7756617730193298
+            },
+            {
+                "frame": true,
+                "x": 409,
+                "scaleX": 0.6709948892753294,
+                "y": 107,
+                "rotation": -151,
+                "scaleY": 0.85043100564873
+            },
+            {
+                "frame": true,
+                "x": 380,
+                "scaleX": 0.6560391508853753,
+                "y": 101,
+                "rotation": -139,
+                "scaleY": 0.9252047937095418
+            },
+            {
+                "frame": true,
+                "x": 350,
+                "scaleX": 0.6410807314757136,
+                "y": 95,
+                "rotation": -127,
+                "scaleY": 0.9999369014869353
+            },
+            {
+                "frame": true,
+                "x": 321,
+                "scaleX": 0.626114664897014,
+                "y": 88,
+                "rotation": -116,
+                "scaleY": 1.074723586752632
+            },
+            {
+                "frame": true,
+                "x": 291,
+                "scaleX": 0.6111847843516894,
+                "y": 82,
+                "rotation": -104,
+                "scaleY": 1.1494776484144598
+            },
+            {
+                "frame": true,
+                "x": 262,
+                "scaleX": 0.5962250231029533,
+                "y": 76,
+                "rotation": -93,
+                "scaleY": 1.2242519970954715
+            },
+            {
+                "frame": true,
+                "x": 232,
+                "scaleX": 0.5812604928383435,
+                "y": 70,
+                "rotation": -81,
+                "scaleY": 1.299030143579676
+            },
+            {
+                "frame": true,
+                "x": 203,
+                "scaleX": 0.5663078255474671,
+                "y": 64,
+                "rotation": -69,
+                "scaleY": 1.373803564511174
+            },
+            {
+                "frame": true,
+                "x": 173,
+                "scaleX": 0.5513726320480996,
+                "y": 57,
+                "rotation": -58,
+                "scaleY": 1.4485660642264535
+            },
+            {
+                "frame": true,
+                "x": 144,
+                "scaleX": 0.5364032675096678,
+                "y": 51,
+                "rotation": -46,
+                "scaleY": 1.5233157586856156
+            },
+            {
+                "frame": true,
+                "x": 115,
+                "scaleX": 0.5214472183284442,
+                "y": 45,
+                "rotation": -34,
+                "scaleY": 1.598070474669271
+            },
+            {
+                "frame": true,
+                "x": 85,
+                "scaleX": 0.5065006371712807,
+                "y": 39,
+                "rotation": -23,
+                "scaleY": 1.6728258568686607
+            },
+            {
+                "frame": true,
+                "x": 56,
+                "scaleX": 0.4915518528009681,
+                "y": 32,
+                "rotation": -11,
+                "scaleY": 1.7476179124714943
+            }
+        ],
+        "ball3":
+        [
+            {
+                "frame": true,
+                "x": 39,
+                "scaleX": 1.299072265625,
+                "alpha": 1,
+                "y": 363,
+                "scaleY": 0.4766387939453125,
+                "rotation": 0
+            },
+            {
+                "scaleY": 0.471282958984375,
+                "x": 55,
+                "scaleX": 1.234954833984375,
+                "y": 341,
+                "frame": true
+            },
+            {
+                "scaleY": 0.4659423828125,
+                "x": 70,
+                "scaleX": 1.170867919921875,
+                "y": 319,
+                "frame": true
+            },
+            {
+                "scaleY": 0.460601806640625,
+                "x": 85,
+                "scaleX": 1.1067962646484375,
+                "y": 297,
+                "frame": true
+            },
+            {
+                "scaleY": 0.45526123046875,
+                "x": 100,
+                "scaleX": 1.0427093505859375,
+                "y": 274,
+                "frame": true
+            },
+            {
+                "scaleY": 0.449920654296875,
+                "x": 116,
+                "scaleX": 0.9786224365234375,
+                "y": 252,
+                "frame": true
+            },
+            {
+                "scaleY": 0.444580078125,
+                "x": 131,
+                "scaleX": 0.9145355224609375,
+                "y": 230,
+                "frame": true
+            },
+            {
+                "scaleY": 0.439239501953125,
+                "x": 146,
+                "scaleX": 0.8504486083984375,
+                "y": 208,
+                "frame": true
+            },
+            {
+                "scaleY": 0.4338836669921875,
+                "x": 162,
+                "scaleX": 0.7863616943359375,
+                "y": 186,
+                "frame": true
+            },
+            {
+                "scaleY": 0.4285430908203125,
+                "x": 177,
+                "scaleX": 0.7222747802734375,
+                "y": 163,
+                "frame": true
+            },
+            {
+                "scaleY": 0.4232025146484375,
+                "x": 192,
+                "scaleX": 0.6581878662109375,
+                "y": 141,
+                "frame": true
+            },
+            {
+                "scaleY": 0.4178619384765625,
+                "x": 207,
+                "scaleX": 0.594085693359375,
+                "y": 119,
+                "frame": true
+            },
+            {
+                "scaleY": 0.4125213623046875,
+                "x": 223,
+                "scaleX": 0.529998779296875,
+                "y": 97,
+                "frame": true
+            },
+            {
+                "scaleY": 0.4071807861328125,
+                "x": 238,
+                "scaleX": 0.465911865234375,
+                "y": 74,
+                "frame": true
+            },
+            {
+                "scaleY": 0.40185546875,
+                "x": 253,
+                "scaleX": 0.40185546875,
+                "y": 52,
+                "frame": true
+            },
+            {
+                "scaleY": 0.406829833984375,
+                "x": 239,
+                "scaleX": 0.4616546630859375,
+                "y": 73,
+                "frame": true
+            },
+            {
+                "scaleY": 0.41180419921875,
+                "x": 225,
+                "scaleX": 0.5214691162109375,
+                "y": 94,
+                "frame": true
+            },
+            {
+                "scaleY": 0.4167938232421875,
+                "x": 210,
+                "scaleX": 0.5812835693359375,
+                "y": 114,
+                "frame": true
+            },
+            {
+                "scaleY": 0.421783447265625,
+                "x": 196,
+                "scaleX": 0.6410980224609375,
+                "y": 135,
+                "frame": true
+            },
+            {
+                "scaleY": 0.4267578125,
+                "x": 182,
+                "scaleX": 0.7009124755859375,
+                "y": 156,
+                "frame": true
+            },
+            {
+                "scaleY": 0.4317474365234375,
+                "x": 168,
+                "scaleX": 0.7607269287109375,
+                "y": 177,
+                "frame": true
+            },
+            {
+                "scaleY": 0.436737060546875,
+                "x": 153,
+                "scaleX": 0.8205413818359375,
+                "y": 197,
+                "frame": true
+            },
+            {
+                "scaleY": 0.44171142578125,
+                "x": 139,
+                "scaleX": 0.8803558349609375,
+                "y": 218,
+                "frame": true
+            },
+            {
+                "scaleY": 0.4467010498046875,
+                "x": 125,
+                "scaleX": 0.9401702880859375,
+                "y": 239,
+                "frame": true
+            },
+            {
+                "scaleY": 0.451690673828125,
+                "x": 111,
+                "scaleX": 0.9999847412109375,
+                "y": 260,
+                "frame": true
+            },
+            {
+                "scaleY": 0.4566650390625,
+                "x": 96,
+                "scaleX": 1.0597991943359375,
+                "y": 280,
+                "frame": true
+            },
+            {
+                "scaleY": 0.4616546630859375,
+                "x": 82,
+                "scaleX": 1.1196136474609375,
+                "y": 301,
+                "frame": true
+            },
+            {
+                "scaleY": 0.466644287109375,
+                "x": 68,
+                "scaleX": 1.1794281005859375,
+                "y": 322,
+                "frame": true
+            },
+            {
+                "scaleY": 0.47161865234375,
+                "x": 54,
+                "scaleX": 1.2392425537109375,
+                "y": 343,
+                "frame": true
+            }
+        ]
+    }
+}

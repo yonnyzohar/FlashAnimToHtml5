@@ -3,9 +3,8 @@
         super();
         this.textBox;
         this.labelStr;
-        this.origScaleX = this.scale.x;
-        this.origScaleY = this.scale.y;
-
+        this.origScaleX;
+        this.origScaleY;
         this.interactive = true;
         this.canTouch = true;
         this.interactiveChildren = true;
@@ -16,7 +15,8 @@
 
         if (this.canTouch) {
             this.canTouch = false;
-
+            this.origScaleX = this.scale.x;
+            this.origScaleY = this.scale.y;
             TweenLite.to(this.scale, 0.15, {
                 x: this.origScaleX * 0.9,
                 y: this.origScaleY * 0.9,

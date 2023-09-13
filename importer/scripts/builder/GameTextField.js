@@ -1,15 +1,24 @@
 ﻿
 	class GameTextField extends PIXI.Text
 	{
-		constructor(_width, _height, _text, _fontName="Verdana", _fontSize=12, _color=0, _bold=false) 
+		constructor(boundsObj, _text, _fontName="Verdana", _fontSize=12, _color=0, _bold=false) 
 		{
             super(_text,{fontFamily: _fontName, fontSize: _fontSize, fill: _color, align : 'center'});
 			this.innerVal;
             this.z;
             this.bgTF;
-            this.width = _width;
-            this.height = _height;
+			
+            //this.width = _width;
+            //this.height = _height;
+
+			
+
             
+		}
+
+		showBorder()
+		{
+			
 		}
 		
 		setName(_name, placement = "")

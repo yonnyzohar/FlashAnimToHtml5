@@ -1,0 +1,10 @@
+{"frames":{"BallMC":{"frame":{"x":0,"y":71,"w":56,"h":56},
+"sourceSize": {"w":56,"h":56}
+},
+"InnerBallMC":{"frame":{"x":16,"y":0,"w":56,"h":56},
+"sourceSize": {"w":56,"h":56}
+},
+"flash.display::MovieClip":{"frame":{"x":0,"y":0,"w":15,"h":70},
+"sourceSize": {"w":15,"h":70}
+}
+},"meta":{"image": "ta.png","format": "RGBA8888","size": {"w":72,"h":127},"scale": "1"}}
