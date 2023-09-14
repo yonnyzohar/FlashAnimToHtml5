@@ -30,7 +30,7 @@
 			var frames = {};
 			var baseNode = this.templates[_templateName];
 			var num = 0;
-			 if(baseNode.children)
+			 if(baseNode && baseNode.children)
 			 {
 				
 				for(var i = 0; i < baseNode.children.length; i++)
@@ -50,6 +50,10 @@
 
 	     static spawn(tempName) {
 	         var baseNode = this.templates[tempName];
+			 if(!baseNode)
+			 {
+				return;
+			 }
 	         var mc;
 			 var frames = this.getFrames(tempName);
 			 

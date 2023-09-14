@@ -38,9 +38,21 @@ class Main {
             var view;
             for(var i = 0; i < this.viewHeirarchyObj.stage.children.length; i++)
             {
-                var templateName = this.viewHeirarchyObj.stage.children[i].name;
+                var childObj = this.viewHeirarchyObj.stage.children[i];
+                var templateName = childObj.name;
                 console.log(templateName);
                 view = TemplateLoader.spawn(templateName);
+                view.x = childObj.x;
+                view.y = childObj.y;
+                var matrix = childObj.matrix;
+                var m = new PIXI.Matrix();
+				m.a = matrix.a;
+				m.b = matrix.b;
+				m.c = matrix.c;
+				m.d = matrix.d;
+				m.tx = matrix.tx;
+				m.ty = matrix.ty;
+                view.transform.setFromMatrix(m);
                 this.gameHolder.addChild(view);
                 view.looping = true;
                 this.playAnims(view);
@@ -77,11 +89,15 @@ class Main {
             mc.gotoAndPlay(0);
             return;
         }
-        for (let i = 0; i < mc.children.length; i++) {
-            const child = mc.children[i];
-            this.playAnims(child);
-            // Do something with 'child'
-          }
+        if(mc.children)
+        {
+            for (let i = 0; i < mc.children.length; i++) {
+                const child = mc.children[i];
+                this.playAnims(child);
+                // Do something with 'child'
+              }
+        }
+        
     }
 
     onStartTouched() {
