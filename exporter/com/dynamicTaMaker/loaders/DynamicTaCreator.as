@@ -656,9 +656,9 @@
 								tx: matrix.tx,
 								ty: matrix.ty
 							};
-							var currX:int = int(child.x);
-							var currY:int = int(child.y);
-							var rot:int = int(child.rotation);
+							var currX:int = (child.x);
+							var currY:int = (child.y);
+							var rot:int = (child.rotation);
 							var sX:Number = child.scaleX;
 							var sY:Number = child.scaleY;
 							var a:Number = child.alpha;
