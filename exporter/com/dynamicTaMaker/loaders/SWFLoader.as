@@ -39,8 +39,8 @@
 		{
 			completeCallback = _completeCallback;
 			
-
-			var f: File = new File(animSWF);
+			var f:File = File.applicationDirectory.resolvePath(animSWF);
+			//var f: File = new File(animSWF);
 
 			if (f.exists) {
 				animSWF = f.nativePath;

@@ -9,7 +9,7 @@
 		public function Main() 
 		{
 			trace("yo");
-			var str:String = "/Users/yonnyzohar/Documents/myProjects/FlashAnimToHtml5/exporter/assets/slotMachine.swf";
+			var str:String = "./assets/slotMachine.swf";
 			//var d:DynamicTaCreator = new DynamicTaCreator();
 			//d.init(new BallAssetsMC());
 			var swfLoader:SWFLoader = new SWFLoader();
