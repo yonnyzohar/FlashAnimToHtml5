@@ -45,8 +45,8 @@
 		;
 	
 		private var brk:String = '\n';
-		private var dimentionsW:int = 2048;
-		private var dimentionsH:int = 2048;
+		private var dimentionsW:int = 1024;
+		private var dimentionsH:int = 1024;
 		
 		private var view:MovieClip;
 		private var imagesData: Vector.<CTextureData> = new Vector.<CTextureData>();
@@ -92,6 +92,7 @@
 			trace("createFonts");
 			createFontsFile();
 			view = null;
+			trace("DONE");
 		}
 		
 		

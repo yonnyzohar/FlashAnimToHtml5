@@ -7,13 +7,6 @@
 			this.innerVal;
             this.z;
             this.bgTF;
-			
-            //this.width = _width;
-            //this.height = _height;
-
-			
-
-            
 		}
 
 		showBorder()

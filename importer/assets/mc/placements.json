@@ -1,0 +1,512 @@
+{
+    "templates":
+    {
+        "XButton":
+        {
+            "template": true,
+            "type": "asset",
+            "children":
+            [
+                {
+                    "x": 0,
+                    "type": "img",
+                    "height": 18,
+                    "name": "XButton_IMG",
+                    "y": 0,
+                    "width": 17
+                }
+            ],
+            "name": "XButton"
+        },
+        "FillAllMSG":
+        {
+            "template": true,
+            "type": "asset",
+            "children":
+            [
+                {
+                    "template": false,
+                    "x": 0,
+                    "tfType": "dynamic",
+                    "y": 0,
+                    "rotation": 0,
+                    "color": 16711680,
+                    "z": 0,
+                    "font": "Arial Bold",
+                    "text": "MUST FILL ALL",
+                    "type": "textField",
+                    "align": "center",
+                    "height": 26,
+                    "name": "txt",
+                    "width": 207,
+                    "size": 20,
+                    "alpha": 1
+                }
+            ],
+            "name": "FillAllMSG"
+        },
+        "LongBtnBG":
+        {
+            "template": true,
+            "type": "asset",
+            "children":
+            [
+                {
+                    "x": 0,
+                    "type": "img",
+                    "height": 36,
+                    "name": "LongBtnBG_IMG",
+                    "y": 0,
+                    "width": 119
+                }
+            ],
+            "name": "LongBtnBG"
+        },
+        "ConfirmBTN":
+        {
+            "template": true,
+            "x": 313.9,
+            "type": "btn",
+            "children":
+            [
+                {
+                    "template": true,
+                    "x": -59.45,
+                    "scaleX": 1,
+                    "alpha": 1,
+                    "instanceName": "greyBG",
+                    "y": -18,
+                    "scaleY": 1,
+                    "type": "asset",
+                    "name": "LongBtnBG",
+                    "rotation": 0
+                },
+                {
+                    "template": true,
+                    "x": -51,
+                    "tfType": "dynamic",
+                    "y": -14,
+                    "rotation": 0,
+                    "color": 16777215,
+                    "z": 1,
+                    "font": "Arial Bold",
+                    "text": "OK",
+                    "type": "textField",
+                    "align": "center",
+                    "height": 26,
+                    "name": "instance13",
+                    "width": 99,
+                    "size": 20,
+                    "alpha": 1
+                }
+            ],
+            "alpha": 1,
+            "instanceName": "confirmBTN",
+            "name": "ConfirmBTN",
+            "rotation": 0,
+            "scaleX": 3.03192138671875,
+            "y": 872.4,
+            "scaleY": 3.03192138671875
+        },
+        "CalIMG":
+        {
+            "template": true,
+            "type": "asset",
+            "children":
+            [
+                {
+                    "x": -61,
+                    "type": "img",
+                    "height": 89,
+                    "name": "CalIMG_IMG",
+                    "y": -44.5,
+                    "width": 122
+                }
+            ],
+            "name": "CalIMG"
+        },
+        "BigBG":
+        {
+            "template": true,
+            "type": "asset",
+            "children":
+            [
+                {
+                    "x": -1,
+                    "type": "img",
+                    "height": 215,
+                    "name": "BigBG_IMG",
+                    "y": -1,
+                    "width": 153
+                }
+            ],
+            "name": "BigBG"
+        },
+        "TextFieldBG":
+        {
+            "template": true,
+            "type": "asset",
+            "children":
+            [
+                {
+                    "x": -0.5,
+                    "type": "img",
+                    "height": 58,
+                    "name": "TextFieldBG_IMG",
+                    "y": -0.5,
+                    "width": 110
+                }
+            ],
+            "name": "TextFieldBG"
+        },
+        "AddDayScreenMC":
+        {
+            "template": true,
+            "type": "asset",
+            "children":
+            [
+                {
+                    "template": true,
+                    "x": 19.05,
+                    "scaleX": 4.0849609375,
+                    "alpha": 1,
+                    "instanceName": "instance5",
+                    "y": 23.3,
+                    "scaleY": 4.3769683837890625,
+                    "type": "asset",
+                    "name": "BigBG",
+                    "rotation": 0
+                },
+                {
+                    "template": true,
+                    "x": 179,
+                    "tfType": "dynamic",
+                    "y": 38,
+                    "rotation": 0,
+                    "color": 0,
+                    "z": 1,
+                    "font": "AkayaKanadaka-Regular",
+                    "text": "ADD DAY",
+                    "type": "textField",
+                    "align": "center",
+                    "height": 75,
+                    "name": "instance7",
+                    "width": 271,
+                    "size": 40,
+                    "alpha": 1
+                },
+                {
+                    "template": true,
+                    "x": 45.6,
+                    "scaleX": 3.88165283203125,
+                    "alpha": 1,
+                    "instanceName": "instance8",
+                    "y": 189.65,
+                    "scaleY": 1.3157958984375,
+                    "type": "asset",
+                    "name": "TextFieldBG",
+                    "rotation": 0
+                },
+                {
+                    "template": true,
+                    "x": 166,
+                    "tfType": "input",
+                    "y": 596,
+                    "rotation": 0,
+                    "color": 0,
+                    "z": 3,
+                    "font": "_sans",
+                    "text": "16",
+                    "type": "textField",
+                    "align": "right",
+                    "height": 116,
+                    "name": "finishH",
+                    "width": 143,
+                    "size": 100,
+                    "alpha": 1
+                },
+                {
+                    "template": true,
+                    "x": 334,
+                    "tfType": "input",
+                    "y": 596,
+                    "rotation": 0,
+                    "color": 0,
+                    "z": 4,
+                    "font": "_sans",
+                    "text": "20",
+                    "type": "textField",
+                    "align": "left",
+                    "height": 116,
+                    "name": "finishM",
+                    "width": 147,
+                    "size": 100,
+                    "alpha": 1
+                },
+                {
+                    "template": true,
+                    "x": 212,
+                    "tfType": "dynamic",
+                    "y": 502,
+                    "rotation": 0,
+                    "color": 0,
+                    "z": 6,
+                    "font": "Avenir Light",
+                    "text": "END",
+                    "type": "textField",
+                    "align": "center",
+                    "height": 72,
+                    "name": "instance11",
+                    "width": 228,
+                    "size": 50,
+                    "alpha": 1
+                },
+                {
+                    "template": true,
+                    "x": 62.8,
+                    "scaleX": 2.534759521484375,
+                    "alpha": 1,
+                    "instanceName": "fillAllMessage",
+                    "y": 739.8,
+                    "scaleY": 2.534759521484375,
+                    "type": "asset",
+                    "name": "FillAllMSG",
+                    "rotation": 0
+                },
+                {
+                    "template": true,
+                    "x": 313.9,
+                    "type": "btn",
+                    "children":
+                    [
+                        {
+                            "template": true,
+                            "x": -59.45,
+                            "scaleX": 1,
+                            "alpha": 1,
+                            "instanceName": "greyBG",
+                            "y": -18,
+                            "scaleY": 1,
+                            "type": "asset",
+                            "name": "LongBtnBG",
+                            "rotation": 0
+                        },
+                        {
+                            "template": true,
+                            "x": -51,
+                            "tfType": "dynamic",
+                            "y": -14,
+                            "rotation": 0,
+                            "color": 16777215,
+                            "z": 1,
+                            "font": "Arial Bold",
+                            "text": "OK",
+                            "type": "textField",
+                            "align": "center",
+                            "height": 26,
+                            "name": "instance13",
+                            "width": 99,
+                            "size": 20,
+                            "alpha": 1
+                        }
+                    ],
+                    "alpha": 1,
+                    "instanceName": "confirmBTN",
+                    "name": "ConfirmBTN",
+                    "rotation": 0,
+                    "scaleX": 3.03192138671875,
+                    "y": 872.4,
+                    "scaleY": 3.03192138671875
+                },
+                {
+                    "template": true,
+                    "x": 168,
+                    "tfType": "input",
+                    "y": 372,
+                    "rotation": 0,
+                    "color": 0,
+                    "z": 9,
+                    "font": "_sans",
+                    "text": "16",
+                    "type": "textField",
+                    "align": "right",
+                    "height": 116,
+                    "name": "startH",
+                    "width": 143,
+                    "size": 100,
+                    "alpha": 1
+                },
+                {
+                    "template": true,
+                    "x": 336,
+                    "tfType": "input",
+                    "y": 372,
+                    "rotation": 0,
+                    "color": 0,
+                    "z": 10,
+                    "font": "_sans",
+                    "text": "20",
+                    "type": "textField",
+                    "align": "left",
+                    "height": 116,
+                    "name": "startM",
+                    "width": 147,
+                    "size": 100,
+                    "alpha": 1
+                },
+                {
+                    "template": true,
+                    "x": 33,
+                    "tfType": "dynamic",
+                    "y": 279,
+                    "rotation": 0,
+                    "color": 0,
+                    "z": 12,
+                    "font": "Academy Engraved LET Plain:1.0",
+                    "text": "START TIME",
+                    "type": "textField",
+                    "align": "center",
+                    "height": 63,
+                    "name": "instance15",
+                    "width": 586,
+                    "size": 50,
+                    "alpha": 1
+                },
+                {
+                    "template": true,
+                    "x": 45,
+                    "tfType": "dynamic",
+                    "y": 198,
+                    "rotation": 0,
+                    "color": 0,
+                    "z": 13,
+                    "font": "Ayuthaya",
+                    "text": "dsfsdf",
+                    "type": "textField",
+                    "align": "center",
+                    "height": 59,
+                    "name": "dateTXT",
+                    "width": 422,
+                    "size": 40,
+                    "alpha": 1
+                },
+                {
+                    "template": true,
+                    "x": 31,
+                    "tfType": "dynamic",
+                    "y": 107,
+                    "rotation": 0,
+                    "color": 0,
+                    "z": 14,
+                    "font": "Arial",
+                    "text": "CHOOSE DATE",
+                    "type": "textField",
+                    "align": "center",
+                    "height": 60,
+                    "name": "instance16",
+                    "width": 586,
+                    "size": 50,
+                    "alpha": 1
+                },
+                {
+                    "template": true,
+                    "x": 541,
+                    "scaleX": 0.8295440673828125,
+                    "alpha": 1,
+                    "instanceName": "calBTN",
+                    "y": 224.15,
+                    "scaleY": 0.8295440673828125,
+                    "type": "asset",
+                    "name": "CalIMG",
+                    "rotation": 0
+                },
+                {
+                    "template": true,
+                    "x": 168.35,
+                    "scaleX": 1,
+                    "alpha": 1,
+                    "instanceName": "instance18",
+                    "y": 564.25,
+                    "scaleY": 1,
+                    "type": "asset",
+                    "name": "RedLine",
+                    "rotation": 0
+                },
+                {
+                    "template": true,
+                    "x": 549.65,
+                    "scaleX": 3.28570556640625,
+                    "alpha": 1,
+                    "instanceName": "xButton",
+                    "y": 38.75,
+                    "scaleY": 3.28570556640625,
+                    "type": "asset",
+                    "name": "XButton",
+                    "rotation": 0
+                },
+                {
+                    "template": true,
+                    "x": 157.25,
+                    "scaleX": 1,
+                    "alpha": 1,
+                    "instanceName": "instance21",
+                    "y": 177,
+                    "scaleY": 1,
+                    "type": "asset",
+                    "name": "RedLine",
+                    "rotation": 0
+                },
+                {
+                    "template": true,
+                    "x": 166.5,
+                    "scaleX": 1,
+                    "alpha": 1,
+                    "instanceName": "instance23",
+                    "y": 350.85,
+                    "scaleY": 1,
+                    "type": "asset",
+                    "name": "RedLine",
+                    "rotation": 0
+                }
+            ],
+            "name": "AddDayScreenMC"
+        },
+        "RedLine":
+        {
+            "template": true,
+            "type": "asset",
+            "children":
+            [
+                {
+                    "x": 0,
+                    "type": "img",
+                    "height": 5,
+                    "name": "RedLine_IMG",
+                    "y": 0,
+                    "width": 315
+                }
+            ],
+            "name": "RedLine"
+        }
+    },
+    "animTracks":
+    {},
+    "stage":
+    {
+        "children":
+        [
+            {
+                "template": true,
+                "x": -4.1,
+                "scaleX": 1,
+                "alpha": 1,
+                "instanceName": "instance4",
+                "y": -4,
+                "scaleY": 1,
+                "type": "asset",
+                "name": "AddDayScreenMC",
+                "rotation": 0
+            }
+        ]
+    }
+}

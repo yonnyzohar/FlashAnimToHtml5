@@ -8,11 +8,12 @@
 
 		public function Main() 
 		{
-			trace("yo")
+			trace("yo");
+			var str:String = "/Users/yonnyzohar/Documents/myProjects/FlashAnimToHtml5/exporter/assets/slotMachine.swf";
 			//var d:DynamicTaCreator = new DynamicTaCreator();
 			//d.init(new BallAssetsMC());
 			var swfLoader:SWFLoader = new SWFLoader();
-			swfLoader.loadSWF("/Users/yonathan.zohar/Downloads/FlashAnimToHtml5/exporter/chicken.swf", onComplete);
+			swfLoader.loadSWF(str, onComplete);
 			////new AssetsMC()//WrapperMC
 			trace("yo")
 		}

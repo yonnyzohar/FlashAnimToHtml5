@@ -1,0 +1,19 @@
+{"frames":{"BigBG":{"frame":{"x":316,"y":0,"w":153,"h":215},
+"sourceSize": {"w":153,"h":215}
+},
+"TextFieldBG":{"frame":{"x":123,"y":43,"w":110,"h":58},
+"sourceSize": {"w":110,"h":58}
+},
+"LongBtnBG":{"frame":{"x":123,"y":6,"w":119,"h":36},
+"sourceSize": {"w":119,"h":36}
+},
+"CalIMG":{"frame":{"x":0,"y":6,"w":122,"h":89},
+"sourceSize": {"w":122,"h":89}
+},
+"RedLine":{"frame":{"x":0,"y":0,"w":315,"h":5},
+"sourceSize": {"w":315,"h":5}
+},
+"XButton":{"frame":{"x":243,"y":6,"w":17,"h":18},
+"sourceSize": {"w":17,"h":18}
+}
+},"meta":{"image": "ta.png","format": "RGBA8888","size": {"w":469,"h":215},"scale": "1"}}

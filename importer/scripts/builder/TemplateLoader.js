@@ -8,23 +8,7 @@
 	         this.templates = this.placementsObj.templates;//this.getAllAssets(this.placementsObj, this.templates);
 			 this.animTracks = this.placementsObj.animTracks;
 	     }
-/*
-	     static getAllAssets(o, allAssets) {
-	         for (var k in o) {
-	             if (k == "type" && o[k] == "asset") {
-	                 allAssets[o["name"]] = o;
-	             }
-
-	             if (o[k] instanceof Object) {
-	                 this.getAllAssets(o[k], allAssets);
-	             }
-
-
-	         }
-	         return allAssets;
-	     }
 		 
-*/
 		 static getFrames(_templateName)
 		 {
 			var frames = {};

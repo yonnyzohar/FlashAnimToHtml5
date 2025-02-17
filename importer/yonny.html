@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        .grid-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .grid-item {
+            
+            border: 1px solid black;
+            position: absolute;
+        }
+        .green {
+            background-color: green;
+        }
+        .blue {
+            background-color: blue;
+        }
+    </style>
+    <body>
+        <div id="grid"></div>
+    </body>
+    <script>
+
+class MinHeap {
+    constructor() {
+        this.heap = [];
+    }
+
+    getLeftChildIndex(parentIndex) {
+        return 2 * parentIndex + 1;
+    }
+
+    getRightChildIndex(parentIndex) {
+        return 2 * parentIndex + 2;
+    }
+
+    getParentIndex(childIndex) {
+        return Math.floor((childIndex - 1) / 2);
+    }
+
+    hasLeftChild(index) {
+        return this.getLeftChildIndex(index) < this.heap.length;
+    }
+
+    hasRightChild(index) {
+        return this.getRightChildIndex(index) < this.heap.length;
+    }
+
+    hasParent(index) {
+        return this.getParentIndex(index) >= 0;
+    }
+
+    leftChild(index) {
+        return this.heap[this.getLeftChildIndex(index)];
+    }
+
+    rightChild(index) {
+        return this.heap[this.getRightChildIndex(index)];
+    }
+
+    parent(index) {
+        return this.heap[this.getParentIndex(index)];
+    }
+
+    swap(index1, index2) {
+        const temp = this.heap[index1];
+        this.heap[index1] = this.heap[index2];
+        this.heap[index2] = temp;
+    }
+
+    peek() {
+        if (this.heap.length === 0) {
+            return null;
+        }
+        return this.heap[0];
+    }
+
+    poll() {
+        if (this.heap.length === 0) {
+            return null;
+        }
+        if (this.heap.length === 1) {
+            return this.heap.pop();
+        }
+        const item = this.heap[0];
+        this.heap[0] = this.heap.pop();
+        this.heapifyDown();
+        return item;
+    }
+
+    add(item) {
+        this.heap.push(item);
+        this.heapifyUp();
+    }
+
+    heapifyUp() {
+        let index = this.heap.length - 1;
+        while (this.hasParent(index) && this.parent(index) > this.heap[index]) {
+            this.swap(this.getParentIndex(index), index);
+            index = this.getParentIndex(index);
+        }
+    }
+
+    heapifyDown() {
+        let index = 0;
+        while (this.hasLeftChild(index)) {
+            let smallerChildIndex = this.getLeftChildIndex(index);
+            if (this.hasRightChild(index) && this.rightChild(index) < this.leftChild(index)) {
+                smallerChildIndex = this.getRightChildIndex(index);
+            }
+            if (this.heap[index] < this.heap[smallerChildIndex]) {
+                break;
+            } else {
+                this.swap(index, smallerChildIndex);
+            }
+            index = smallerChildIndex;
+        }
+    }
+}
+
+
+var MinStack = function() {
+    this.end = -1;
+    this.arr = [];
+    this.minHeap = new MinHeap();
+    this.numInstances = {};
+
+};
+
+/** 
+ * @param {number} val
+ * @return {void}
+ */
+MinStack.prototype.push = function(val) {
+    this.end++;
+    this.arr[this.end] = val;
+    if(this.numInstances[val] == undefined)
+    {
+        this.numInstances[val] = 0;
+    }
+    if(this.numInstances[val] == 0)
+    {
+        this.minHeap.add(val);
+    }
+    this.numInstances[val]++;
+
+    console.log("added " + val);
+    console.log(this.numInstances[val] + " instances of " + val);
+
+};
+
+/**
+ * @return {void}
+ */
+MinStack.prototype.pop = function() {
+    console.log("pop");
+    var currVal = this.arr[this.end];
+    
+    this.end--;
+    this.numInstances[currVal]--;
+    if(this.numInstances[currVal] == 0)
+    {
+        this.minHeap.poll();
+    }
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.top = function() {
+    return this.arr[this.end];
+};
+
+/**
+ * @return {number}
+ */
+MinStack.prototype.getMin = function() {
+    return this.minHeap.peek();
+};
+
+
+
+var obj = new MinStack()
+obj.push(5);
+obj.push(3);
+obj.push(4);
+
+console.log(obj.getMin());
+obj.pop();
+obj.pop();
+obj.top();
+console.log(obj.getMin());
+
+/** 
+ * Your MinStack object will be instantiated and called as such:
+ * 
+ * obj.push(val)
+ * obj.pop()
+ * var param_3 = obj.top()
+ * var param_4 = obj.getMin()
+ */
+
+
+
+
+
+
+
+///////////////////////////////////
+
+        /**
+ * @param {string} s
+ * @return {string[]}
+ */
+var findRepeatedDnaSequences = function(s) {
+    var arr = [];
+    var start = 0;
+    var end = 9;
+
+    while(end < s.length)
+    {
+        var found = true;
+     
+        for(var i = start+1; i < end + 1; i++)
+        {
+            if(s[i])
+            {
+                if(s[i] != s[i-1])
+                {
+                    found = false;
+                    break;
+                }
+            }
+            else
+            {
+                found = false;
+                break;
+            }
+        }
+        if(found)
+        {
+            arr.push(getWord(start, end, s));
+        }
+
+        start++;
+        end++;
+    }
+
+    return arr;
+    
+
+};
+
+console.log(findRepeatedDnaSequences("AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"));
+
+function getWord(start, end, s)
+{
+    var str = "";
+    for(var i = 0; i < s.length; i++)
+    {
+        str+= s[i];
+    }
+    return str;
+}
+
+////////////////////////////////////////////////
+
+
+
+
+var input = [
+  [ '1', '0', '0', '1', '1', '1', '0', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0' ],
+  [ '1', '0', '0', '1', '1', '0', '0', '1', '0', '0', '0', '1', '0', '1', '0', '1', '0', '0', '1', '0' ],
+  [ '0', '0', '0', '1', '1', '1', '1', '0', '1', '0', '1', '1', '0', '0', '0', '0', '1', '0', '1', '0' ],
+  [ '0', '0', '0', '1', '1', '0', '0', '1', '0', '0', '0', '1', '1', '1', '0', '0', '1', '0', '0', '1' ],
+  [ '0', '0', '0', '0', '0', '0', '0', '1', '1', '1', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0' ],
+  [ '1', '0', '0', '0', '0', '1', '0', '1', '0', '1', '1', '0', '0', '0', '0', '0', '0', '1', '0', '1' ],
+  [ '0', '0', '0', '1', '0', '0', '0', '1', '0', '1', '0', '1', '0', '1', '0', '1', '0', '1', '0', '1' ], 
+  [ '0', '0', '0', '1', '0', '1', '0', '0', '1', '1', '0', '1', '0', '1', '1', '0', '1', '1', '1', '0' ], 
+  [ '0', '0', '0', '0', '1', '0', '0', '1', '1', '0', '0', '0', '0', '1', '0', '0', '0', '1', '0', '1' ], 
+  [ '0', '0', '1', '0', '0', '1', '0', '0', '0', '0', '0', '1', '0', '0', '1', '0', '0', '0', '1', '0' ], 
+  [ '1', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '1', '0', '1', '0', '1', '0' ], 
+  [ '0', '1', '0', '0', '0', '1', '0', '1', '0', '1', '1', '0', '1', '1', '1', '0', '1', '1', '0', '0' ], 
+  [ '1', '1', '0', '1', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '1' ], 
+  [ '0', '1', '0', '0', '1', '1', '1', '0', '0', '0', '1', '1', '1', '1', '1', '0', '1', '0', '0', '0' ], 
+  [ '0', '0', '1', '1', '1', '0', '0', '0', '1', '1', '0', '0', '0', '1', '0', '1', '0', '0', '0', '0' ], 
+  [ '1', '0', '0', '1', '0', '1', '0', '0', '0', '0', '1', '0', '0', '0', '1', '0', '1', '0', '1', '1' ], 
+  [ '1', '0', '1', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '1', '0', '1', '0', '0', '0', '0' ], 
+  [ '0', '1', '1', '0', '0', '0', '1', '1', '1', '0', '1', '0', '1', '0', '1', '1', '1', '1', '0', '0' ], 
+  [ '0', '1', '0', '0', '0', '0', '1', '1', '0', '0', '1', '0', '1', '0', '0', '1', '0', '0', '1', '1' ], 
+  [ '0', '0', '0', '0', '0', '0', '1', '1', '1', '1', '0', '1', '0', '0', '0', '1', '1', '0', '0', '0' ]
+];
+
+const gridContainer = document.getElementById('grid');
+    var size = 50;
+    for (let i = 0; i < input.length; i++) {
+        for (let j = 0; j < input[i].length; j++) {
+            const cell = document.createElement('div');
+            cell.classList.add('grid-item');
+            cell.style.width = size+ 'px';
+            cell.style.height = size+ 'px';
+            cell.style.top = (i * size)  + 'px';
+            cell.style.left = (j * size) + 'px';
+            cell.id = i + '_' + j;
+            cell.row = i;
+            cell.col = j;
+            if (input[i][j] === "1") {
+                cell.classList.add('green');
+                cell.land = true;
+                cell.addEventListener('click', function() {
+                    // Function to execute when the div is clicked
+                    const clickedDivId = this.id;
+                    var row = this.row;
+                    var col = this.col;
+                    floodFill(row, col, gridContainer);
+                
+
+                });
+            } else {
+                cell.classList.add('blue');
+            }
+            gridContainer.appendChild(cell);
+
+            
+        }
+    }
+
+    function floodFill(row, col, cont)
+    {
+        const element = document.getElementById(row + '_' + col);
+
+        if(element && element.land && element.style.display!= "none")
+        {
+            element.style.display = "none";
+            floodFill(row-1, col, cont);
+            floodFill(row+1, col, cont);
+            floodFill(row, col-1, cont);
+            floodFill(row, col+1, cont);
+        }
+        
+    }
+
+/**
+ * @param {character[][]} grid
+ * @return {number}
+ */
+var numIslands = function(grid) {
+
+    var arr = [];
+    var gridRows = grid.length;
+    var gridCols = grid[0].length;
+    var onLand = false;
+    var currIslandIndex = 0;
+    var regions = [];
+    //first pass
+    for(var row = 0; row < gridRows; row++)
+    {
+        arr[row] = [];
+        for(var col = 0; col < gridCols; col++)
+        {
+            var topLeft = [-1,-1];
+            var top = [-1,0];
+            var topRight = [-1,1];
+            var left = [0,-1];
+            if(col == 0)
+            {
+                currIslandIndex++;
+            }
+            if(grid[row][col] == "1")
+            {
+                if(!onLand)
+                {
+                    currIslandIndex++;
+                    if(currIslandIndex == 83)
+                    {
+                        var h = 1;
+                    }
+                    onLand = true;
+                }
+
+                //var topLeftNums = getNum(grid, arr, row, col, topLeft);
+                var topNums = getNum(grid, arr, row, col, top);
+                //var topRightNums = getNum(grid, arr, row, col, topRight);
+                var leftNums = getNum(grid, arr, row, col, left);
+
+                var allNums = {};
+                allNums[currIslandIndex] = true;
+                /*
+                if(topLeftNums)
+                {
+                    for(var k in topLeftNums)
+                    {
+                        allNums[k] = true;
+                    }
+                }
+                */
+                if(topNums)
+                {
+                    for(var k in topNums)
+                    {
+                        allNums[k] = true;
+                    }
+                }/*
+                if(topRightNums)
+                {
+                    for(var k in topRightNums)
+                    {
+                        allNums[k] = true;
+                    }
+                }
+                */
+                if(leftNums)
+                {
+                    for(var k in  leftNums)
+                    {
+                        allNums[k] = true;
+                    }
+                }
+                
+                arr[row][col] = allNums;
+                if(topNums)
+                {
+                    //arr[row+top[0]][col+top[1]] = allNums;
+                }
+                if(leftNums)
+                {
+                    //arr[row+left[0]][col+left[1]] = allNums;
+                }
+                addToRegions(allNums,regions);
+
+                const element = document.getElementById(row + '_' + col);
+                var n = "";
+                for(var k in allNums)
+                    {
+                        n += k + ","
+                    } 
+                element.innerHTML = n;
+            }
+            else
+            {
+                onLand = false;
+                arr[row][col] = {water:true};
+            }
+        }
+    }
+
+    console.log(regions);
+
+    return regions.length;
+};
+
+
+function getNum(grid, arr, row, col, dir)
+{
+    if(grid[row + dir[0]] && 
+       grid[row + dir[0]][col + dir[1]] == "1" && 
+       arr[row + dir[0]] &&
+       arr[row + dir[0]][col + dir[1]])
+    {
+        return arr[row + dir[0]][col + dir[1]];
+    }
+}
+
+function addToRegions(allNums,regions)
+{
+    var found = false;
+    for(var i = 0; i < regions.length; i++)
+    {
+        var region = regions[i];
+        for(var k in region)
+        {
+            //if one of the number appears, we need to merge into existing region
+            if(allNums[k])
+            {
+                found = true;
+                break;
+            }
+        }
+        if(found)
+        {
+            for(var k in allNums)
+            {
+                region[k] = true;
+            }
+            break;
+        }
+    }
+
+    if(!found)
+    {
+        var region = {};
+        for(var k in allNums)
+        {
+            region[k] = true;
+        }
+        regions.push(region);
+    }
+
+    for(var i = 0; i < regions.length; i++)
+    {
+        var r1 = regions[i];
+        var count1 = Object.keys(r1).length;
+        
+        for(var j = i+1; j < regions.length; j++)
+        {
+            var r2 = regions[j];
+            var count2 = Object.keys(r2).length;
+            if(count1 < count2)
+            {
+                var merge = false;
+                for(var k in r1)
+                {
+                    if(r2[k])
+                    {
+                        merge = true;
+                        break;
+                    }
+                }
+                if(merge)
+                {
+                    for(var k in r1)
+                    {
+                        r2[k] = true;
+                    }
+
+                    //remove r1
+                    regions.splice(i,1);
+                    return;
+                }
+            }
+            else
+            {
+                var merge = false;
+                for(var k in r2)
+                {
+                    if(r1[k])
+                    {
+                        merge = true;
+                        break;
+                    }
+                }
+                if(merge)
+                {
+                    for(var k in r2)
+                    {
+                        r1[k] = true;
+                    }
+
+                    //remove r2
+                    regions.splice(j,1);
+                    return;
+                }
+            }
+        
+        }
+    }
+    
+
+
+}
+
+console.log(numIslands(input));
+
+    </script>
+</html>
