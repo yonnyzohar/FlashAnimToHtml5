@@ -284,6 +284,7 @@
 					if (m_uniqueFontsMap[uniqueFontName] == null) 
 					{
 						font = FontUtils.createFont(textItem, tf, embeddedChars, fontId, uniqueFontName);
+						font.uniqueFontName = uniqueFontName;
 						m_uniqueFontsMap[uniqueFontName] = font;
 
 						font.m_textureDataArray = [];
@@ -480,19 +481,20 @@
 				}
 				else if(mc.getChildAt(i) is TextField)
 				{
+					obj = {};
 					var tf:TextField = TextField(mc.getChildAt(i));
-					var fontCharsBDArray: Object = createFont(mc, CLSName);
-					var m_textureDataArray = fontCharsBDArray.m_textureDataArray;
+					obj.text = tf.text;
+					var font: Object = createFont(mc, CLSName);
+					var m_textureDataArray = font.m_textureDataArray;
 					for (var j: int = 0; j < m_textureDataArray.length; j++) {
 						var bd: BitmapData = m_textureDataArray[j].m_bd;
 						var uniqueName: String = getQualifiedClassName(child) + j;
 						m_textureDataArray[j].m_extraData.linkage = uniqueName;
 						tryToPush(bd, uniqueName);
 					}
-					trace("m_textureDataArray",m_textureDataArray);
 					
-					obj = {};
-					obj.type = "textField";
+					
+					obj.type = "bmpTextField";//"textField";
 					obj.name = tf.name;
 					obj.template = templateItem;
 					obj.x = int(tf.x);
@@ -501,12 +503,14 @@
 					obj.width=int(tf.width);
 					obj.height=int(tf.height);
 					obj.alpha=Number(tf.alpha);
-					obj.text = tf.text;
+					
 					obj.tfType = tf.type;
 					obj.size = tf.defaultTextFormat.size;
 					obj.align = tf.defaultTextFormat.align;
 					obj.font = tf.defaultTextFormat.font;
 					obj.color = tf.defaultTextFormat.color;
+					obj.uniqueFontName = font.m_uniqueFontName;
+					
 					obj.z = i;
 
 					/*

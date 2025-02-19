@@ -392,6 +392,13 @@
 			
 			var textureData : Object;
 			var charCode : int;
+			var lastWidth : int = 0;
+			var lastHeight : int = 0;
+			var lastXOffset : int = 0;
+			var lastYOffset : int = 0;
+			var lastXadvance : int = 0;
+
+
 			for (var i : int = 0; i < textureDataArray.length; ++i)
 			{
 				textureData = textureDataArray[i];
@@ -407,22 +414,41 @@
 				charNode.@y = textureData.m_textureRect.y;
 				charNode.@width = textureData.m_textureRect.width;
 				charNode.@height = textureData.m_textureRect.height;
+				lastWidth = textureData.m_textureRect.width;
+				lastHeight = textureData.m_textureRect.height;
 				//charNode.@xoffset = 0;
 				var yOffset : int = textureData.m_extraData.minY - font.m_lineReference.minY;
 				charNode.@yoffset = yOffset;
+				lastYOffset = yOffset;
 				var xoffset : int = textureData.m_extraData.originalHeight;
 				if (xoffset < 0) 
 				{
 					xoffset = 0;
 				}
+				lastXOffset = xoffset;
 				charNode.@xoffset = xoffset;
 				var xadvance : int = font.m_charsAdvance[i];
 				var xadvanceExtra : int = (textureData.m_extraData.maxX - textureData.m_extraData.minX) - textureData.m_extraData.originalWidth;
 				// the *0.7 is just a hard coded "NICE" looking number there is no math behind it
 				xadvance += xadvanceExtra * 0.7 + font.m_letterSpacing;
+				lastXadvance = xadvance;
 				charNode.@xadvance = xadvance;
 				charsNode.appendChild(charNode);
 			}
+
+			charNode = <char/>;
+			charNode.@id = 32;
+			charNode.@x = 0;
+			charNode.@y = 0;
+			charNode.@width = lastWidth;
+			charNode.@height = lastHeight;
+			charNode.@xoffset = lastXOffset;
+			charNode.@yoffset = lastYOffset;
+			charNode.@xadvance = lastXadvance;
+			charsNode.appendChild(charNode);
+			//<char id="32" x="0" y="0" width="8" height="8" xoffset="0" yoffset="0" xadvance="8"/>
+
+
 			fontNode.appendChild(infoNode);
 			pagesNode.appendChild(pageNode);
 			fontNode.appendChild(pagesNode);
