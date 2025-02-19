@@ -10,12 +10,8 @@
 		{
 			trace("yo");
 			var str:String = "./assets/slotMachine.swf";
-			//var d:DynamicTaCreator = new DynamicTaCreator();
-			//d.init(new BallAssetsMC());
 			var swfLoader:SWFLoader = new SWFLoader();
 			swfLoader.loadSWF(str, onComplete);
-			////new AssetsMC()//WrapperMC
-			trace("yo")
 		}
 	
 		private function onComplete(mc:MovieClip):void
