@@ -131,10 +131,10 @@
 			
 		private function displayImages(): void {
 			var chosenArrLen: int = imagesData.length;
-			trace("chosenArrLen " + chosenArrLen);
+			//trace("chosenArrLen " + chosenArrLen);
 			for(var i:int = 0; i < chosenArrLen; i++)
 			{
-				trace("adding " + imagesData[i].parentLikage);
+				//trace("adding " + imagesData[i].parentLikage);
 			}
 			var padding: int = 10;
 
@@ -160,7 +160,7 @@
 				var imgData: CTextureData = imagesData[index];
 				bmp = new Bitmap(imgData.img);
 				m_name = imgData.parentLikage;
-				rect = imgData.m_textureRect
+				rect = imgData.m_textureRect;
 
 				if (m_textureDataArray.length > 0) {
 					outer1: for (var fontId:String in m_fontsDataMap) {
@@ -333,10 +333,13 @@
 		private function createFontsFile(): void {
 
 			var fontsXML: XML = <font/> ;
+			trace("createFontsFile " + m_textureDataArray.length);
 			if (m_textureDataArray.length > 0) {
 				//fontsXML.@source = "bob";
 				for (var fontId: String in m_fontsDataMap) {
+					trace("fontId " + fontId);
 					var font: Object = m_fontsDataMap[fontId];
+					
 					FontUtils.getFontXMLNode(fontId, font, font.m_textureDataArray, "ta.png", fontsXML);
 
 				}
@@ -368,44 +371,7 @@
 						nodeName = CLSName;
 						templateItem = true;
 					}
-/*
-					if (CLSName.indexOf("TextItem") != -1) {
-						var fontCharsBDArray: Object = createFont(child, CLSName);
-						var m_textureDataArray = fontCharsBDArray.m_textureDataArray;
-
-						for (var j: int = 0; j < m_textureDataArray.length; j++) {
-							var bd: BitmapData = m_textureDataArray[j].m_bd;
-							var uniqueName: String = getQualifiedClassName(child) + j;
-							m_textureDataArray[j].m_extraData.linkage = uniqueName;
-							tryToPush(bd, uniqueName);
-						}
-
-						var tf: TextField = getTextField(child);
-
-						obj = {};
-						obj.type = "bmpTextField";
-						obj.name = child.name;
-						obj.template = templateItem;
-						obj.x = int(child.x);
-						obj.y = int(child.y);
-						obj.rotation = int(child.rotation);
-						obj.width = int(child.width);
-						obj.height = int(child.height);
-						obj.alpha = Number(child.alpha);
-						obj.text = tf.text;
-						obj.tfType = tf.type;
-						obj.size = tf.defaultTextFormat.size;
-						obj.align = tf.defaultTextFormat.align;
-						obj.font = fontCharsBDArray.m_uniqueFontName; //tf.defaultTextFormat.font;
-						obj.color = tf.defaultTextFormat.color;
-						obj.z = i;
-
-						addObj(parentObj, obj);
-
-
-						continue;
-					}
-					*/
+					
 					
 					if(nodeName.indexOf("BTN") != -1 ) //child.name.indexOf("BTN")
 					{
@@ -455,15 +421,6 @@
 						obj.type = "asset";
 						obj.name = nodeName;
 						obj.template = templateItem;
-						//obj.instanceName = child.name;
-						//obj.x = int(child.x);
-						//obj.y=  int(child.y);
-						//obj.rotation= int(child.rotation);
-						//obj.width=int(child.width);
-						//obj.height=int(child.height);
-						//obj.alpha=Number(child.alpha);
-	
-						
 
 						addObj(parentObj, {
 							type : "asset",
@@ -524,6 +481,15 @@
 				else if(mc.getChildAt(i) is TextField)
 				{
 					var tf:TextField = TextField(mc.getChildAt(i));
+					var fontCharsBDArray: Object = createFont(mc, CLSName);
+					var m_textureDataArray = fontCharsBDArray.m_textureDataArray;
+					for (var j: int = 0; j < m_textureDataArray.length; j++) {
+						var bd: BitmapData = m_textureDataArray[j].m_bd;
+						var uniqueName: String = getQualifiedClassName(child) + j;
+						m_textureDataArray[j].m_extraData.linkage = uniqueName;
+						tryToPush(bd, uniqueName);
+					}
+					trace("m_textureDataArray",m_textureDataArray);
 					
 					obj = {};
 					obj.type = "textField";
@@ -542,6 +508,45 @@
 					obj.font = tf.defaultTextFormat.font;
 					obj.color = tf.defaultTextFormat.color;
 					obj.z = i;
+
+					/*
+					if (CLSName.indexOf("TextItem") != -1) {
+						var fontCharsBDArray: Object = createFont(child, CLSName);
+						var m_textureDataArray = fontCharsBDArray.m_textureDataArray;
+
+						for (var j: int = 0; j < m_textureDataArray.length; j++) {
+							var bd: BitmapData = m_textureDataArray[j].m_bd;
+							var uniqueName: String = getQualifiedClassName(child) + j;
+							m_textureDataArray[j].m_extraData.linkage = uniqueName;
+							tryToPush(bd, uniqueName);
+						}
+
+						var tf: TextField = getTextField(child);
+
+						obj = {};
+						obj.type = "bmpTextField";
+						obj.name = child.name;
+						obj.template = templateItem;
+						obj.x = int(child.x);
+						obj.y = int(child.y);
+						obj.rotation = int(child.rotation);
+						obj.width = int(child.width);
+						obj.height = int(child.height);
+						obj.alpha = Number(child.alpha);
+						obj.text = tf.text;
+						obj.tfType = tf.type;
+						obj.size = tf.defaultTextFormat.size;
+						obj.align = tf.defaultTextFormat.align;
+						obj.font = fontCharsBDArray.m_uniqueFontName; //tf.defaultTextFormat.font;
+						obj.color = tf.defaultTextFormat.color;
+						obj.z = i;
+
+						addObj(parentObj, obj);
+
+
+						continue;
+					}
+					*/
 					
 					addObj(parentObj, obj);
 				}
@@ -553,7 +558,7 @@
 						var bounds:Rectangle = shp.getBounds(shp);
 						
 						var parentTempName:String = getQualifiedClassName(mc);
-						trace(parentTempName);
+						//trace(parentTempName);
 						if (parentTempName == "flash.display::MovieClip")
 						{
 							parentTempName = mc.name;
@@ -736,7 +741,7 @@
 			//if this linkage exists, don't bother
 			for (var i: int = 0; i < imagesData.length; i++) {
 				if (_parentLikage == imagesData[i].parentLikage) {
-					trace(_parentLikage + " exists by name, ignoring");
+					//trace(_parentLikage + " exists by name, ignoring");
 					exists = true;
 					alternateLinkage = imagesData[i].parentLikage;
 					img = imagesData[i].img;
@@ -749,7 +754,7 @@
 					exists = true;
 					img = imagesData[i].img;
 					alternateLinkage = imagesData[i].parentLikage;
-					trace(_parentLikage + " exists by shape, ignoring");
+					//trace(_parentLikage + " exists by shape, ignoring");
 					break;
 				}
 

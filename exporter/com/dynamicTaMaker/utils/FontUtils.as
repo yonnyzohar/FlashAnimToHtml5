@@ -324,6 +324,7 @@
 			{
 				return null;
 			}
+
 			
 			/*<info chasrset="" unicode="0" stretchH="100" smooth="1" aa="1" padding="0,0,0,0" spacing="1,1" />
     <common lineHeight="119" base="61" scaleW="512" scaleH="512" pages="1" packed="0" />*/
@@ -394,10 +395,14 @@
 			for (var i : int = 0; i < textureDataArray.length; ++i)
 			{
 				textureData = textureDataArray[i];
-				charNode = <char/>
-				
+				trace(JSON.stringify(textureData));
+				charNode = <char/>;
+				trace("charCode = " + font.m_embeddedChars.charCodeAt(i));
 				charCode = font.m_embeddedChars.charCodeAt(i);
 				charNode.@id = charCode;
+				
+				//
+
 				charNode.@x = textureData.m_textureRect.x;
 				charNode.@y = textureData.m_textureRect.y;
 				charNode.@width = textureData.m_textureRect.width;
