@@ -240,13 +240,12 @@
 			return null;
 		}
 
-		protected function createFont(textItem: MovieClip, fontId: String): Object {
+		protected function createFont(textItem: MovieClip, fontId: String=""): Object {
+			trace("createFont",textItem, fontId);
 			var uniqueFontName: String;
 			var tf: TextField = getTextField(textItem);
 			if (tf) 
 			{
-
-				/**/
 				var scaleX: Number = textItem.scaleX;	
 				var scaleY: Number = textItem.scaleY;
 				var tfX: Number = textItem.x;
@@ -258,9 +257,6 @@
 				textItem.scaleX = 1;
 				textItem.scaleY = 1;
 
-				
-
-				
 				var spaces: RegExp = / /gi; // match "spaces" in a string
 				var format: TextFormat = tf.defaultTextFormat;
 
@@ -275,6 +271,7 @@
 
 				if (m_fontsDataMap[uniqueFontName] == null) 
 				{
+					trace("uniqueFontName " + uniqueFontName + " is null");
 					var textureData: Object;
 					var embeddedChars: String = FontUtils.getEmbeddedChars(tf.text.replace(spaces, ""));
 
@@ -302,7 +299,8 @@
 					// If the font hasn't been created yet, we will create it and add it to the map.
 					if (m_uniqueFontsMap[uniqueFontName] == null) 
 					{
-						font = FontUtils.createFont(textItem, tf, embeddedChars, fontId, uniqueFontName);
+						trace(uniqueFontName + " not yet created")
+						font = FontUtils.createFont(textItem, tf, embeddedChars, "", uniqueFontName);
 						font.uniqueFontName = uniqueFontName;
 						m_uniqueFontsMap[uniqueFontName] = font;
 
@@ -337,12 +335,18 @@
 							}
 						}
 					}
-						// This means that we already created this font, take the CFont object from the map, for re-use.
 					else {
-							font = m_uniqueFontsMap[uniqueFontName];
+						// This means that we already created this font, take the CFont object from the map, for re-use.
+						trace(uniqueFontName + " already exists ");
+						font = m_uniqueFontsMap[uniqueFontName];
 					}
 
 					m_fontsDataMap[uniqueFontName] = font;
+				}
+				else
+				{
+					font = m_fontsDataMap[uniqueFontName];
+					trace("uniqueFontName " + uniqueFontName + " already exists");
 				}
 
 				textItem.x = tfX;
@@ -351,6 +355,11 @@
 				textItem.scaleX = scaleX;
 				textItem.scaleY = scaleY;
 			}
+			else
+			{
+				trace("no textfield found");
+			}
+			trace("font",font)
 			return font;
 
 		}
@@ -401,7 +410,7 @@
 						nodeName = CLSName;
 						templateItem = true;
 					}
-					
+					trace("CLSName " , CLSName);
 					
 					if(nodeName.indexOf("BTN") != -1 ) //child.name.indexOf("BTN")
 					{
@@ -412,9 +421,6 @@
 						obj.instanceName = child.name;
 						obj.x = (child.x);
 						obj.y=  (child.y);
-						//obj.rotation= (child.rotation);
-						//obj.scaleX=(child.scaleX);
-						//obj.scaleY=(child.scaleY);
 						obj.alpha=(child.alpha);
 						obj.matrix = {
 							a: matrix.a,
@@ -459,9 +465,6 @@
 							instanceName : child.name,
 							x : (child.x),
 							y :  (child.y),
-							//rotation : (child.rotation),
-							//scaleX :(child.scaleX),
-							//scaleY :(child.scaleY),
 							alpha:Number(child.alpha),
 							matrix : {
 								a: matrix.a,
@@ -501,20 +504,15 @@
 								parse(child, obj);
 							}
 						}
-						
-						
-						
 					}
 				}
 				else if(mc.getChildAt(i) is TextField)
 				{
 					obj = {};
 					var tf:TextField = TextField(mc.getChildAt(i));
-					
-
 					obj.text = tf.text;
-					var font: Object = createFont(mc, CLSName);
-					
+					trace("tf.text " + tf.text);
+					var font: Object = createFont(mc);
 					
 					var m_textureDataArray = font.m_textureDataArray;
 					for (var j: int = 0; j < m_textureDataArray.length; j++) 
