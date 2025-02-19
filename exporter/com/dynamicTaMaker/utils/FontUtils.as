@@ -62,7 +62,7 @@
 
 			if (text.search(multiplierPattern) != -1 && text.search(lettersPattern) == -1) {
 
-				embeddedChars = "0123456789,.XMKBT";
+				embeddedChars = "0123456789,.XMKBT ";
 
 
 				existsCharsPattern = /[0-9,]/g;
@@ -72,7 +72,7 @@
 			}
 			// If it contains letters, we will export all alpha numeric characters
 			else if (text.search(lettersPattern) != -1) {
-				embeddedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,.0123456789!?:";
+				embeddedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,.0123456789!?: ";
 
 				existsCharsPattern = /[a-zA-Z,.0123456789]/g;
 
@@ -408,8 +408,6 @@
 				charCode = font.m_embeddedChars.charCodeAt(i);
 				charNode.@id = charCode;
 				
-				//
-
 				charNode.@x = textureData.m_textureRect.x;
 				charNode.@y = textureData.m_textureRect.y;
 				charNode.@width = textureData.m_textureRect.width;

@@ -45,8 +45,8 @@
 		;
 	
 		private var brk:String = '\n';
-		private var dimentionsW:int = 1024;
-		private var dimentionsH:int = 1024;
+		private var dimentionsW:int = 2048;
+		private var dimentionsH:int = 2048;
 		
 		private var view:MovieClip;
 		private var imagesData: Vector.<CTextureData> = new Vector.<CTextureData>();
@@ -100,11 +100,14 @@
 		private function createTA():void 
 		{
 			
+			viewHeirarchyObj.fonts = [];
+			for (var fontId: String in m_fontsDataMap) 
+			{
+				viewHeirarchyObj.fonts.push(fontId) ;
+			}
 
 			taPlacements = '{"frames":{';
 			displayImages();
-
-
 			taPlacements += '},"meta":{"image": "ta.png","format": "RGBA8888","size": {"w":'+taMC.width+',"h":'+taMC.height+'},"scale": "1"}}';
 			
 			
@@ -121,8 +124,8 @@
 				{
 					webPConvert(f);
 				}
-				saveXML(taPlacements, "ta.json");
-				saveXML(JSON.stringify(viewHeirarchyObj), "placements.json");
+				saveFile(taPlacements, "ta.json");
+				saveFile(JSON.stringify(viewHeirarchyObj), "placements.json");
 			}
 
 			dispatchEvent(new Event("TA_CREATED"))
@@ -242,6 +245,22 @@
 			var tf: TextField = getTextField(textItem);
 			if (tf) 
 			{
+
+				/**/
+				var scaleX: Number = textItem.scaleX;	
+				var scaleY: Number = textItem.scaleY;
+				var tfX: Number = textItem.x;
+				var tfY: Number = textItem.y;
+				var rot: Number = textItem.rotation;
+				textItem.x = 0;
+				textItem.y = 0;
+				textItem.rotation = 0;
+				textItem.scaleX = 1;
+				textItem.scaleY = 1;
+
+				
+
+				
 				var spaces: RegExp = / /gi; // match "spaces" in a string
 				var format: TextFormat = tf.defaultTextFormat;
 
@@ -325,6 +344,12 @@
 
 					m_fontsDataMap[uniqueFontName] = font;
 				}
+
+				textItem.x = tfX;
+				textItem.y = tfY;
+				textItem.rotation = rot;
+				textItem.scaleX = scaleX;
+				textItem.scaleY = scaleY;
 			}
 			return font;
 
@@ -333,20 +358,24 @@
 		//need to get x, y, width and height of node in TA of font
 		private function createFontsFile(): void {
 
-			var fontsXML: XML = <font/> ;
+			var count:int = 0;
+
+			
 			trace("createFontsFile " + m_textureDataArray.length);
 			if (m_textureDataArray.length > 0) {
 				//fontsXML.@source = "bob";
 				for (var fontId: String in m_fontsDataMap) {
 					trace("fontId " + fontId);
+					var fontsXML: XML = <font/> ;
 					var font: Object = m_fontsDataMap[fontId];
 					
 					FontUtils.getFontXMLNode(fontId, font, font.m_textureDataArray, "ta.png", fontsXML);
-
+					// saving the .fnt file.
+					saveFile(fontsXML.toXMLString(), fontId+".fnt");
+					count++;
 				}
 
-				// saving the .fnt file.
-				saveXML(fontsXML.toXMLString(), "font.fnt");
+				
 			}
 		}
 		
@@ -443,9 +472,7 @@
 								ty: matrix.ty
 							}
 
-							});
-
-						
+						});
 
 						if(templateItem)
 						{
@@ -483,12 +510,17 @@
 				{
 					obj = {};
 					var tf:TextField = TextField(mc.getChildAt(i));
+					
+
 					obj.text = tf.text;
 					var font: Object = createFont(mc, CLSName);
+					
+					
 					var m_textureDataArray = font.m_textureDataArray;
-					for (var j: int = 0; j < m_textureDataArray.length; j++) {
+					for (var j: int = 0; j < m_textureDataArray.length; j++) 
+					{
 						var bd: BitmapData = m_textureDataArray[j].m_bd;
-						var uniqueName: String = getQualifiedClassName(child) + j;
+						var uniqueName: String = font.m_uniqueFontName + j;
 						m_textureDataArray[j].m_extraData.linkage = uniqueName;
 						tryToPush(bd, uniqueName);
 					}
@@ -745,7 +777,7 @@
 			//if this linkage exists, don't bother
 			for (var i: int = 0; i < imagesData.length; i++) {
 				if (_parentLikage == imagesData[i].parentLikage) {
-					//trace(_parentLikage + " exists by name, ignoring");
+					trace(_parentLikage + " exists by name, ignoring");
 					exists = true;
 					alternateLinkage = imagesData[i].parentLikage;
 					img = imagesData[i].img;
@@ -758,17 +790,19 @@
 					exists = true;
 					img = imagesData[i].img;
 					alternateLinkage = imagesData[i].parentLikage;
-					//trace(_parentLikage + " exists by shape, ignoring");
+					trace(_parentLikage + " exists by shape, ignoring");
 					break;
 				}
 
 			}
 
 			if (exists == false) {
+				trace("false, pushing " + _parentLikage);
 				imagesData.push(new CTextureData(bd, _parentLikage));
 			}
 			else
 			{
+				trace("true, new object");
 				var obj = {};
 				obj.name = alternateLinkage;
 				return obj;
@@ -854,7 +888,7 @@
 				
 		}
 		
-		private function saveXML(str:String, fileName:String):File
+		private function saveFile(str:String, fileName:String):File
 		{
 			var directoryToCreate:File = outputDir.resolvePath("output");
 			if(!directoryToCreate.exists)
