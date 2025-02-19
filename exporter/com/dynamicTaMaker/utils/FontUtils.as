@@ -370,7 +370,7 @@
 			}
 			
 			infoNode.@italic = "0";
-			infoNode.@chasrset="" ;
+			infoNode.@charset="ANSI" ;
 			infoNode.@unicode="0";
 			infoNode.@stretchH="100";
 			infoNode.@smooth="1";

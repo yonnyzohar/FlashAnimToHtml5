@@ -345,7 +345,7 @@
 				}
 
 				// saving the .fnt file.
-				saveXML(fontsXML.toXMLString(), "font.xml");
+				saveXML(fontsXML.toXMLString(), "font.fnt");
 			}
 		}
 		
