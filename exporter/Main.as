@@ -9,7 +9,7 @@
 		public function Main() 
 		{
 			trace("yo");
-			var str:String = "./assets/slotMachine.swf";
+			var str:String = "./assets/Lavalink.swf";
 			var swfLoader:SWFLoader = new SWFLoader();
 			swfLoader.loadSWF(str, onComplete);
 		}
